@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>rocoWindow</class>
+ <widget class="QMainWindow" name="rocoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>970</width>
+    <height>568</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>rocoWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QAxWidget" name="axWidget">
+    <property name="control" stdset="0">
+     <string>{8856f961-340a-11d0-a96b-00c04fd705a2}</string>
+    </property>
+    <property name="geometry" stdset="0">
+     <rect>
+      <x>3</x>
+      <y>4</y>
+      <width>968</width>
+      <height>566</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QAxWidget</class>
+   <extends>QWidget</extends>
+   <header>qaxwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
