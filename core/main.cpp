@@ -1,26 +1,43 @@
+#include <winsock2.h>
 #include <Windows.h>
+#include <vector>
+
 #include <QApplication>
+#include <QThread>
 
 #include "MinHook.h"
+#include "hook_configure/hookConfigure.h"
 #include "roco_window/rocoWindow.h"
 
 
-using pWs2SendFuncType = int(*)(SOCKET s, char const * buf, int len, int flags);
+roco::hookConfigure<decltype(&send)> sendHookConf;
+roco::hookConfigure<decltype(&recv)> recvHookConf;
+roco::hookConfigure<decltype(&WSASend)> wsaSendHookConf;
+roco::hookConfigure<decltype(&WSARecv)> wsaRecvHookConf;
 
-auto rocoHookSend(SOCKET s, char const * buf, int len, int flags) -> int {
+auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
 
+    return sendHookConf.pOriginalFunc(s, buf, len, flags);
+}
 
-    return 0;
+auto rocoDetourWsaSend(
+    SOCKET s, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine) -> int {
+
+    return wsaSendHookConf.pOriginalFunc(s, lpBuffers, dwBufferCount, lpNumberOfBytesSent, dwFlags, lpOverlapped, lpCompletionRoutine);
 }
 
 
 int main(int argc, char *argv[])
 {
-    MH_Initialize();
+    if (MH_Initialize() != MH_OK) {
+        qDebug() << __LINE__ << '\n';
 
-    QApplication a(argc, argv);
+        return 1;
+    }
 
-    HMODULE ws2Handle = GetModuleHandleA("ws2_32");
+    QApplication qtApp(argc, argv);
+
+    auto ws2Handle {GetModuleHandleA("ws2_32")};
 
     if (!ws2Handle) {
         qDebug() << "wsw_32 module cannot be loaded!\n";
@@ -28,22 +45,63 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    auto pTargetFunc = reinterpret_cast<pWs2SendFuncType>(GetProcAddress(ws2Handle, "send"));
+    sendHookConf.pTargetFunc = reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"));
+    sendHookConf.pDetourFunc = &rocoDetourSend;
 
-    if (!pTargetFunc) {
+    wsaSendHookConf.pTargetFunc =
+        reinterpret_cast<decltype(&WSASend)>(GetProcAddress(ws2Handle, "WSASend"));
+    wsaSendHookConf.pDetourFunc = &rocoDetourWsaSend;
+
+    if (!sendHookConf.pTargetFunc) {
         qDebug() << "send func cannot be found!\n";
 
         return 1;
     }
 
-    qDebug() << reinterpret_cast<uint64_t>(pTargetFunc) << '\n';
+    if (!wsaSendHookConf.pTargetFunc) {
+        qDebug() << "wsaSend func cannot be found!\n";
 
-    rocoWindow w;
-    w.show();
+        return 1;
+    }
 
-    auto qtAppRet {a.exec()};
+    if (MH_CreateHook(reinterpret_cast<LPVOID>(sendHookConf.pTargetFunc),
+                      reinterpret_cast<LPVOID>(sendHookConf.pDetourFunc),
+                      reinterpret_cast<LPVOID*>(&sendHookConf.pOriginalFunc)) != MH_OK) {
+        qDebug() << __LINE__ << '\n';
 
-    MH_Uninitialize();
+        return 1;
+    }
+
+    if (MH_CreateHook(reinterpret_cast<LPVOID>(wsaSendHookConf.pTargetFunc),
+                      reinterpret_cast<LPVOID>(wsaSendHookConf.pDetourFunc),
+                      reinterpret_cast<LPVOID*>(&wsaSendHookConf.pOriginalFunc)) != MH_OK) {
+        qDebug() << __LINE__ << '\n';
+
+        return 1;
+    }
+
+    if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
+        qDebug() << __LINE__ << '\n';
+
+        return 1;
+    }
+
+    rocoWindow rocoApp;
+    rocoApp.show();
+
+    auto qtAppRet {qtApp.exec()};
+
+    if (MH_DisableHook(MH_ALL_HOOKS) != MH_OK) {
+        qDebug() << __LINE__ << '\n';
+
+        return 1;
+    }
+
+    if (MH_Uninitialize() != MH_OK) {
+        qDebug() << __LINE__ << '\n';
+
+        return 1;
+    }
 
     return qtAppRet;
 }

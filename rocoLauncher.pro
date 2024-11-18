@@ -10,10 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     core/main.cpp \
-    core/roco_window/rocoWindow.cpp
+    core/roco_window/rocoWindow.cpp \
+    core/packet/packetSender.cpp
 
 HEADERS += \
-    core/roco_window/rocoWindow.h
+    core/hook_configure/hookConfigure.h \
+    core/roco_window/rocoWindow.h \
+    core/packet/packetSender.h
 
 FORMS += \
     ui/rocoWindow.ui
@@ -23,6 +26,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+win32: LIBS += -lWs2_32
 win32: LIBS += -L$$PWD/libs/minhook/bin/ -lMinHook.x64
 
 INCLUDEPATH += $$PWD/libs/minhook/include

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>970</width>
-    <height>568</height>
+    <width>960</width>
+    <height>560</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>rocoWindow</string>
+   <string>roco</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QAxWidget" name="axWidget">
@@ -20,8 +20,8 @@
     </property>
     <property name="geometry" stdset="0">
      <rect>
-      <x>3</x>
-      <y>4</y>
+      <x>-4</x>
+      <y>-2</y>
       <width>968</width>
       <height>566</height>
      </rect>
