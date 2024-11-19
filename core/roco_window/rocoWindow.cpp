@@ -9,7 +9,7 @@ rocoWindow::rocoWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->axWidget->dynamicCall("Navigate(QString const &)","https://17roco.qq.com/qzone.html");
+    ui->axWidget->dynamicCall("Navigate(https://17roco.qq.com/qzone.html)");
 }
 
 rocoWindow::~rocoWindow()
