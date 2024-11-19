@@ -12,13 +12,13 @@
 
 int main(int argc, char *argv[])
 {
-    WSADATA wsadt;
+    // WSADATA wsadt;
 
-    if (WSAStartup(MAKEWORD(2, 2), &wsadt) != NO_ERROR) {
-        qDebug() << "wsa start up failed!\n";
+    // if (WSAStartup(MAKEWORD(2, 2), &wsadt) != NO_ERROR) {
+    //     qDebug() << "wsa start up failed!\n";
 
-        return EXIT_FAILURE;
-    }
+    //     return EXIT_FAILURE;
+    // }
 
     if (MH_Initialize() != MH_OK) {
         qDebug() << __LINE__ << '\n';
@@ -79,9 +79,9 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    closesocket(roco::sendProxy::ref().getSendSocket());
+    // closesocket(roco::sendProxy::ref().getSendSocket());
 
-    WSACleanup();
+    // WSACleanup();
 
     return qtAppRet;
 }
