@@ -13,33 +13,6 @@
 
 roco::hookConfigure<decltype(&send)> sendHookConf;
 
-WSAPROTOCOL_INFOW gameSockInfo;
-
-auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
-    if (roco::sendProxy::ref().getSendSocket() == 0 && len == 49) {
-        if (WSADuplicateSocket(s, GetCurrentProcessId(), &gameSockInfo) == NO_ERROR) {
-            SOCKET copiedSock {WSASocket(
-                FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, &gameSockInfo, 0, 0)};
-
-            if (copiedSock != INVALID_SOCKET) {
-                roco::sendProxy::ref().setSendSocket(copiedSock);
-            } else {
-                qDebug() << "copied socket created failed!\n";
-                qDebug() << WSAGetLastError() << '\n';
-            }
-        } else {
-            qDebug() << "socket duplicated failed!\n";
-            qDebug() << WSAGetLastError() << '\n';
-        }
-    }
-
-    if (roco::sendProxy::ref().getSendSocket() == s) {
-        s = roco::sendProxy::ref().getSendSocket();
-    }
-
-    return sendHookConf.pOriginalFunc(s, buf, len, flags);
-}
-
 
 int main(int argc, char *argv[])
 {
@@ -68,7 +41,7 @@ int main(int argc, char *argv[])
     }
 
     sendHookConf.pTargetFunc = reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"));
-    sendHookConf.pDetourFunc = &rocoDetourSend;
+    sendHookConf.pDetourFunc = &roco::detourSend;
 
     if (!sendHookConf.pTargetFunc) {
         qDebug() << "send func cannot be found!\n";
