@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     if (MH_Initialize() != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     QApplication qtApp(argc, argv);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     if (!ws2Handle) {
         qDebug() << "wsw_32 module cannot be loaded!\n";
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     auto pTargetFunc {reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"))};
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     if (!pTargetFunc) {
         qDebug() << "send func cannot be found!\n";
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     decltype(pTargetFunc) pOriginalFunc {};
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
                       reinterpret_cast<LPVOID*>(&pOriginalFunc)) != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     roco::sendProxy::ref().setSendFunc(pOriginalFunc);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     rocoWindow rocoApp;
@@ -70,13 +70,13 @@ int main(int argc, char *argv[])
     if (MH_DisableHook(MH_ALL_HOOKS) != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     if (MH_Uninitialize() != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
-        return 1;
+        return EXIT_FAILURE;
     }
 
     closesocket(roco::sendProxy::ref().getSendSocket());
