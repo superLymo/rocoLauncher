@@ -13,11 +13,24 @@
 
 roco::hookConfigure<decltype(&send)> sendHookConf;
 
+WSAPROTOCOL_INFOW gameSockInfo;
+
 auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
-    if (len == 49) {
-        qDebug() << "-----------------\n";
-        qDebug() << "seems like we found game socket : " << s << '\n';
-        qDebug() << roco::byteArrToStr16({buf, len}) << '\n';
+    if (roco::sendProxy::ref().getSendSocket() == 0 && len == 49) {
+        if (WSADuplicateSocket(s, GetCurrentProcessId(), &gameSockInfo) == NO_ERROR) {
+            SOCKET copiedSock {WSASocket(
+                FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, &gameSockInfo, 0, 0)};
+
+            if (copiedSock != INVALID_SOCKET) {
+                roco::sendProxy::ref().setSendSocket(copiedSock);
+            } else {
+                qDebug() << "copied socket created failed!\n";
+                qDebug() << WSAGetLastError() << '\n';
+            }
+        } else {
+            qDebug() << "socket duplicated failed!\n";
+            qDebug() << WSAGetLastError() << '\n';
+        }
     }
 
     return sendHookConf.pOriginalFunc(s, buf, len, flags);
@@ -91,6 +104,10 @@ int main(int argc, char *argv[])
 
         return 1;
     }
+
+    closesocket(roco::sendProxy::ref().getSendSocket());
+
+    WSACleanup();
 
     return qtAppRet;
 }
