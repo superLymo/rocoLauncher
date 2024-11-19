@@ -16,7 +16,6 @@ SOURCES += \
     core/roco_window/rocoWindow.cpp
 
 HEADERS += \
-    core/hook_configure/hookConfigure.h \
     core/packet/sendProxy.h \
     core/packet/wsaSendProxy.h \
     core/roco_window/rocoWindow.h \

@@ -5,13 +5,9 @@
 #include <QThread>
 
 #include "MinHook.h"
-#include "hook_configure/hookConfigure.h"
 #include "roco_window/rocoWindow.h"
 #include "packet/sendProxy.h"
 #include "detour_function/detourFuncs.h"
-
-
-roco::hookConfigure<decltype(&send)> sendHookConf;
 
 
 int main(int argc, char *argv[])
@@ -40,24 +36,25 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    sendHookConf.pTargetFunc = reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"));
-    sendHookConf.pDetourFunc = &roco::detourSend;
+    auto pTargetFunc {reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"))};
 
-    if (!sendHookConf.pTargetFunc) {
+    if (!pTargetFunc) {
         qDebug() << "send func cannot be found!\n";
 
         return 1;
     }
 
-    if (MH_CreateHook(reinterpret_cast<LPVOID>(sendHookConf.pTargetFunc),
-                      reinterpret_cast<LPVOID>(sendHookConf.pDetourFunc),
-                      reinterpret_cast<LPVOID*>(&sendHookConf.pOriginalFunc)) != MH_OK) {
+    decltype(pTargetFunc) pOriginalFunc {};
+
+    if (MH_CreateHook(reinterpret_cast<LPVOID>(pTargetFunc),
+                      reinterpret_cast<LPVOID>(&roco::detourSend),
+                      reinterpret_cast<LPVOID*>(&pOriginalFunc)) != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
         return 1;
     }
 
-    roco::sendProxy::ref().setSendFunc(sendHookConf.pOriginalFunc);
+    roco::sendProxy::ref().setSendFunc(pOriginalFunc);
 
     if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
         qDebug() << __LINE__ << '\n';
