@@ -4,8 +4,6 @@
 
 #include <QDebug>
 
-#include "../utils/bytes.h"
-
 namespace roco {
 auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int {
     sendProxy::ref().submit(s, buf, len, flags);
@@ -48,11 +46,11 @@ sendProxy::sendProxy(QObject *parent)
 {
     std::thread([this]{
         while (true) {
+            auto pkt {this->pkts.pop()};
+
             if (this->sendSock == 0 || this->sendFunc == nullptr) {
                 continue;
             }
-
-            auto pkt {this->pkts.pop()};
 
             auto ret {this->sendFunc.load()(
                 this->sendSock, pkt.second.data(), pkt.second.size(), pkt.first.sendFlags)};
