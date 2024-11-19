@@ -33,6 +33,10 @@ auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
         }
     }
 
+    if (roco::sendProxy::ref().getSendSocket() == s) {
+        s = roco::sendProxy::ref().getSendSocket();
+    }
+
     return sendHookConf.pOriginalFunc(s, buf, len, flags);
 }
 
