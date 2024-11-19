@@ -6,9 +6,9 @@
 
 namespace roco {
 auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int {
-    static WSAPROTOCOL_INFOW gameSockInfo {};
-
     if (roco::sendProxy::ref().getSendSocket() == 0 && len == 49) {
+        WSAPROTOCOL_INFOW gameSockInfo {};
+
         if (WSADuplicateSocket(s, GetCurrentProcessId(), &gameSockInfo) == NO_ERROR) {
             SOCKET copiedSock {WSASocket(
                 FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, FROM_PROTOCOL_INFO, &gameSockInfo, 0, 0)};
