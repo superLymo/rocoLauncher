@@ -12,10 +12,6 @@ auto sendProxy::ref() -> sendProxy & {
 }
 
 auto sendProxy::submit(SOCKET s, char const * buf, int len, int flags) -> bool {
-    // if (u_long blockMode {1}; ioctlsocket(s, FIONBIO, &blockMode) != NO_ERROR) {
-    //     qDebug() << "set sock non blocking mode is damn shit!\n";
-    // }
-
     return pkts.try_push(std::make_pair(packetMeta{s, flags}, QByteArray(buf, len)));
 }
 
