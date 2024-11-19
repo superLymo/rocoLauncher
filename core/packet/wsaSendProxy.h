@@ -11,11 +11,11 @@ auto wsaDetourSend(
     SOCKET s, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine) -> int;
 }
 
-class wsaPacketSender : public QObject
+class wsaSendProxy : public QObject
 {
     Q_OBJECT
 public:
-    explicit wsaPacketSender(QObject *parent = nullptr);
+    explicit wsaSendProxy(QObject *parent = nullptr);
 
 signals:
 };
