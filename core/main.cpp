@@ -8,7 +8,7 @@
 #include "hook_configure/hookConfigure.h"
 #include "roco_window/rocoWindow.h"
 #include "packet/sendProxy.h"
-#include "utils/bytes.h"
+#include "detour_function/detourFuncs.h"
 
 
 roco::hookConfigure<decltype(&send)> sendHookConf;

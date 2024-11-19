@@ -10,9 +10,6 @@
 #include "../atomic_queue/atomic_queue.h"
 
 namespace roco {
-
-auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int;
-
 class sendProxy : public QObject
 {
     Q_OBJECT
