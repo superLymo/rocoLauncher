@@ -1,0 +1,67 @@
+#include "sendProxy.h"
+
+#include <thread>
+
+#include <QDebug>
+
+#include "../utils/bytes.h"
+
+namespace roco {
+auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int {
+    sendProxy::ref().submit(s, buf, len, flags);
+
+    return NO_ERROR;
+}
+
+auto sendProxy::ref() -> sendProxy & {
+    static sendProxy sender {};
+
+    return sender;
+}
+
+auto sendProxy::submit(SOCKET s, char const * buf, int len, int flags) -> bool {
+    // if (u_long blockMode {1}; ioctlsocket(s, FIONBIO, &blockMode) != NO_ERROR) {
+    //     qDebug() << "set sock non blocking mode is damn shit!\n";
+    // }
+
+    return pkts.try_push(std::make_pair(packetMeta{s, flags}, QByteArray(buf, len)));
+}
+
+auto sendProxy::setSendFunc(decltype(&send) originalSend) -> void {
+    this->sendFunc = originalSend;
+}
+
+auto sendProxy::getSendFunc() const -> decltype(&send) {
+    return this->sendFunc;
+}
+
+auto sendProxy::setSendSocket(SOCKET sock) -> void {
+    this->sendSock = sock;
+}
+
+auto sendProxy::getSendSocket() const -> SOCKET {
+    return this->sendSock;
+}
+
+sendProxy::sendProxy(QObject *parent)
+    : QObject{parent}
+{
+    std::thread([this]{
+        while (true) {
+            if (this->sendSock == 0 || this->sendFunc == nullptr) {
+                continue;
+            }
+
+            auto pkt {this->pkts.pop()};
+
+            auto ret {this->sendFunc.load()(
+                this->sendSock, pkt.second.data(), pkt.second.size(), pkt.first.sendFlags)};
+
+            if (ret == SOCKET_ERROR) {
+                qDebug() << "send error!!!\n";
+            }
+        }
+    }).detach();
+}
+
+} // namespace roco

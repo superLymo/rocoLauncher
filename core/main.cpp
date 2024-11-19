@@ -7,13 +7,18 @@
 #include "MinHook.h"
 #include "hook_configure/hookConfigure.h"
 #include "roco_window/rocoWindow.h"
-#include "packet/packetSender.h"
+#include "packet/sendProxy.h"
 #include "utils/bytes.h"
 
 
 roco::hookConfigure<decltype(&send)> sendHookConf;
 
 auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
+    if (len == 49) {
+        qDebug() << "-----------------\n";
+        qDebug() << "seems like we found game socket : " << s << '\n';
+        qDebug() << roco::byteArrToStr16({buf, len}) << '\n';
+    }
 
     return sendHookConf.pOriginalFunc(s, buf, len, flags);
 }
@@ -21,6 +26,14 @@ auto rocoDetourSend(SOCKET s, char const * buf, int len, int flags) -> int {
 
 int main(int argc, char *argv[])
 {
+    WSADATA wsadt;
+
+    if (WSAStartup(MAKEWORD(2, 2), &wsadt) != NO_ERROR) {
+        qDebug() << "wsa start up failed!\n";
+
+        return EXIT_FAILURE;
+    }
+
     if (MH_Initialize() != MH_OK) {
         qDebug() << __LINE__ << '\n';
 
@@ -38,7 +51,7 @@ int main(int argc, char *argv[])
     }
 
     sendHookConf.pTargetFunc = reinterpret_cast<decltype(&send)>(GetProcAddress(ws2Handle, "send"));
-    sendHookConf.pDetourFunc = &roco::detourSend;
+    sendHookConf.pDetourFunc = &rocoDetourSend;
 
     if (!sendHookConf.pTargetFunc) {
         qDebug() << "send func cannot be found!\n";
@@ -54,7 +67,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    roco::packetSender::ref().run(sendHookConf.pOriginalFunc);
+    roco::sendProxy::ref().setSendFunc(sendHookConf.pOriginalFunc);
 
     if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
         qDebug() << __LINE__ << '\n';

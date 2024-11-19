@@ -10,15 +10,15 @@ CONFIG += c++17
 
 SOURCES += \
     core/main.cpp \
-    core/roco_window/rocoWindow.cpp \
-    core/packet/packetSender.cpp \
-    core/packet/wsaPacketSender.cpp
+    core/packet/sendProxy.cpp \
+    core/packet/wsaSendProxy.cpp \
+    core/roco_window/rocoWindow.cpp
 
 HEADERS += \
     core/hook_configure/hookConfigure.h \
+    core/packet/sendProxy.h \
+    core/packet/wsaSendProxy.h \
     core/roco_window/rocoWindow.h \
-    core/packet/packetSender.h \
-    core/packet/wsaPacketSender.h \
     core/atomic_queue/*.h \
     core/utils/bytes.h
 

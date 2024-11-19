@@ -8,6 +8,6 @@ auto wsaDetourSend(
 }
 }
 
-wsaPacketSender::wsaPacketSender(QObject *parent)
+wsaSendProxy::wsaSendProxy(QObject *parent)
     : QObject{parent}
 {}

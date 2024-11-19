@@ -1,5 +1,5 @@
-#ifndef WSAPACKETSENDER_H
-#define WSAPACKETSENDER_H
+#ifndef WSASENDPROXY_H
+#define WSASENDPROXY_H
 
 #include <winsock2.h>
 #include <Windows.h>
@@ -20,4 +20,4 @@ public:
 signals:
 };
 
-#endif // WSAPACKETSENDER_H
+#endif // WSASENDPROXY_H
