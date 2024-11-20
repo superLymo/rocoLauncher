@@ -3,6 +3,7 @@
 
 #include <QApplication>
 #include <QThread>
+#include <QFile>
 
 #include "MinHook.h"
 #include "roco_window/rocoWindow.h"
@@ -26,9 +27,15 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    //QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+    QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+    QGuiApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
 
     QApplication qtApp(argc, argv);
+
+    if (QFile qss(QStringLiteral(":/qss/roco.qss"));
+        qss.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qtApp.setStyleSheet(qss.readAll());
+    }
 
     auto ws2Handle {GetModuleHandleA("ws2_32")};
 
@@ -64,7 +71,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    rocoWindow rocoApp;
+    roco::rocoWindow rocoApp;
     rocoApp.show();
 
     auto qtAppRet {qtApp.exec()};

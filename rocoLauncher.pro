@@ -54,3 +54,6 @@ DEPENDPATH += $$PWD/''
 
 win32:!win32-g++: PRE_TARGETDEPS += $$PWD/libs/WidgetFrame/WidgetFrame.lib
 else:win32-g++: PRE_TARGETDEPS += $$PWD/libs/WidgetFrame/libWidgetFrame.a
+
+RESOURCES += \
+    res/roco.qrc

@@ -9,6 +9,11 @@ class rocoWindow;
 }
 QT_END_NAMESPACE
 
+namespace QWK {
+class WidgetWindowAgent;
+}
+
+namespace roco {
 class rocoWindow : public QMainWindow
 {
     Q_OBJECT
@@ -18,6 +23,11 @@ public:
     ~rocoWindow();
 
 private:
-    Ui::rocoWindow *ui;
+    auto installWindowAgent() -> void;
+
+private:
+    Ui::rocoWindow * ui {};
+    QWK::WidgetWindowAgent * windowAgent {};
 };
+} // namespace roco
 #endif // ROCOWINDOW_H

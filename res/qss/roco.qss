@@ -1,0 +1,123 @@
+/* Window bar */
+
+QWK--WindowBar {
+    background-color: #195ABE;
+}
+
+
+/* Title label */
+
+QWK--WindowBar>QLabel#roco-title-label {
+    padding: 0;
+    border: none;
+    color: #ECECEC;
+    background-color: transparent;
+    min-height: 28px;
+}
+
+/* System buttons */
+
+QWK--WindowBar>QAbstractButton[system-button=true] {
+    qproperty-iconSize: 12px 12px;
+    min-width: 50px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+QWK--WindowBar>QAbstractButton#roco-min-button {
+    qproperty-iconNormal: url(":/icons/minimize.svg");
+    qproperty-iconSize: 12px 12px;
+}
+
+QWK--WindowBar>QAbstractButton#roco-min-button:hover,
+QWK--WindowBar>QAbstractButton#rocomin-button:pressed {
+    background-color: rgba(0, 0, 0, 15%);
+}
+
+QWK--WindowBar>QAbstractButton#roco-close-button {
+    qproperty-iconNormal: url(":/icons/close.svg");
+}
+
+QWK--WindowBar>QAbstractButton#roco-close-button:hover,
+QWK--WindowBar>QAbstractButton#roco-close-button:pressed {
+    background-color: #e81123;
+}
+
+
+/* Icon button */
+
+QWK--WindowBar>QAbstractButton#roco-icon-button {
+    qproperty-iconNormal: url(":/icons/example.png");
+    qproperty-iconSize: 18px 18px;
+    min-width: 40px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+
+/* Menu Bar */
+
+QMenuBar {
+    background-color: transparent;
+    border: none;
+}
+
+QMenuBar>QToolButton#qt_menubar_ext_button {
+    qproperty-icon: url(":/window-bar/more-line.svg");
+}
+
+QMenuBar>QToolButton#qt_menubar_ext_button:hover,
+QMenuBar>QToolButton#qt_menubar_ext_button:pressed {
+    background-color: rgba(255, 255, 255, 10%);
+}
+
+QMenuBar::item {
+    color: #EEEEEE;
+    border: none;
+    padding: 8px 12px;
+}
+
+QMenuBar::item:selected {
+    background-color: rgba(255, 255, 255, 10%);
+}
+
+
+/* Menu */
+
+QMenu {
+    padding: 4px;
+    background: white;
+    border: 1px solid #E0E0E0;
+}
+
+QMenu::indicator {
+    left: 6px;
+    width: 20px;
+    height: 20px;
+}
+
+QMenu::icon {
+    left: 6px;
+}
+
+QMenu::item {
+    background: transparent;
+    color: #333333;
+    padding: 6px 24px;
+}
+
+QMenu::item:selected {
+    background-color: rgba(0, 0, 0, 10%);
+}
+
+QMenu::item:disabled {
+    color: #CCCCCC;
+}
+
+QMenu::separator {
+    height: 2px;
+    background-color: #CCCCCC;
+    margin: 4px 0;
+}
