@@ -13,7 +13,8 @@ SOURCES += \
     core/main.cpp \
     core/packet/sendProxy.cpp \
     core/packet/wsaSendProxy.cpp \
-    core/roco_window/rocoWindow.cpp
+    core/roco_window/rocoWindow.cpp \
+    core/widget_frame/*.cpp
 
 HEADERS += \
     core/packet/sendProxy.h \
@@ -21,10 +22,13 @@ HEADERS += \
     core/roco_window/rocoWindow.h \
     core/atomic_queue/*.h \
     core/utils/bytes.h \
-    core/detour_function/detourFuncs.h
+    core/detour_function/detourFuncs.h \
+    core/widget_frame/*.h
 
 FORMS += \
     ui/rocoWindow.ui
+
+include("libs/QWindowKit/share/QWindowKit/qmake/QWKWidgets.pri")
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -42,3 +46,11 @@ else:win32-g++: PRE_TARGETDEPS += $$PWD/libs/minhook/bin/libMinHook.x64.a
 
 DISTFILES += \
     .gitignore
+
+win32: LIBS += -L$$PWD/libs/WidgetFrame/ -lWidgetFrame
+
+INCLUDEPATH += $$PWD/''
+DEPENDPATH += $$PWD/''
+
+win32:!win32-g++: PRE_TARGETDEPS += $$PWD/libs/WidgetFrame/WidgetFrame.lib
+else:win32-g++: PRE_TARGETDEPS += $$PWD/libs/WidgetFrame/libWidgetFrame.a
