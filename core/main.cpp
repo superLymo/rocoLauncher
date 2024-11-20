@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    //QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+
     QApplication qtApp(argc, argv);
 
     auto ws2Handle {GetModuleHandleA("ws2_32")};
