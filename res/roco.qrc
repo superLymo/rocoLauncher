@@ -14,5 +14,6 @@
         <file>icons/water.png</file>
         <file>icons/robot.png</file>
         <file>icons/ghost.png</file>
+        <file>icons/ghost.ico</file>
     </qresource>
 </RCC>
