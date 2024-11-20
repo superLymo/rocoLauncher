@@ -8,6 +8,8 @@ QWK--WindowBar {
 /* Title label */
 
 QWK--WindowBar>QLabel#roco-title-label {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
     padding: 0;
     border: none;
     color: #ECECEC;
@@ -49,7 +51,7 @@ QWK--WindowBar>QAbstractButton#roco-close-button:pressed {
 
 QWK--WindowBar>QAbstractButton#roco-icon-button {
     qproperty-iconNormal: url(":/icons/example.png");
-    qproperty-iconSize: 18px 18px;
+    qproperty-iconSize: 20px 20px;
     min-width: 40px;
     border: none;
     padding: 0;
@@ -60,6 +62,8 @@ QWK--WindowBar>QAbstractButton#roco-icon-button {
 /* Menu Bar */
 
 QMenuBar {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
     background-color: transparent;
     border: none;
 }
@@ -87,6 +91,8 @@ QMenuBar::item:selected {
 /* Menu */
 
 QMenu {
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
     padding: 4px;
     background: white;
     border: 1px solid #E0E0E0;

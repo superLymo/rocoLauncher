@@ -49,7 +49,7 @@ auto rocoWindow::installWindowAgent() -> void {
     gameMenu->addAction(timeFreezeAction);
 
     // operation menu
-    auto operationMenu {new QMenu(QStringLiteral("行为"), menuBar)};
+    auto operationMenu {new QMenu(QStringLiteral("操作"), menuBar)};
 
     auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
     auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};
