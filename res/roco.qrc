@@ -8,5 +8,11 @@
         <file>icons/more-line.svg</file>
         <file>icons/restore.svg</file>
         <file>qss/roco.qss</file>
+        <file>icons/wu.png</file>
+        <file>icons/star.png</file>
+        <file>icons/flash.png</file>
+        <file>icons/water.png</file>
+        <file>icons/robot.png</file>
+        <file>icons/ghost.png</file>
     </qresource>
 </RCC>
