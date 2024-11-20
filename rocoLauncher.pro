@@ -9,18 +9,18 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    core/detour_function/detourFuncs.cpp \
     core/main.cpp \
+    core/detour_function/detourFuncs.cpp \
     core/packet/sendProxy.cpp \
     core/packet/wsaSendProxy.cpp \
     core/roco_window/rocoWindow.cpp \
     core/widget_frame/*.cpp
 
 HEADERS += \
+    core/atomic_queue/*.h \
     core/packet/sendProxy.h \
     core/packet/wsaSendProxy.h \
     core/roco_window/rocoWindow.h \
-    core/atomic_queue/*.h \
     core/utils/bytes.h \
     core/detour_function/detourFuncs.h \
     core/widget_frame/*.h

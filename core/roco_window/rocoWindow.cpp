@@ -3,6 +3,7 @@
 #include <QWKWidgets/widgetwindowagent.h>
 #include "../widget_frame/windowbar.h"
 #include "../widget_frame/windowbutton.h"
+#include "../packet/sendProxy.h"
 
 #include "rocoWindow.h"
 #include "ui_rocoWindow.h"
@@ -42,6 +43,13 @@ auto rocoWindow::installWindowAgent() -> void {
     auto gameMenu {new QMenu(QStringLiteral("游戏"), menuBar)};
 
     auto refreshAction {new QAction(QStringLiteral("刷新"), menuBar)};
+
+    connect(refreshAction, &QAction::triggered, this, [this]{
+        this->ui->axWidget->dynamicCall("Navigate(https://17roco.qq.com/qzone.html)");
+
+        sendProxy::ref().setSendSocket(0);
+    });
+
     auto silentAction {new QAction(QStringLiteral("静音"), menuBar)};
     silentAction->setCheckable(true);
     auto timeFreezeAction {new QAction(QStringLiteral("战斗免时"), menuBar)};

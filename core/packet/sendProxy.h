@@ -1,13 +1,12 @@
 #ifndef SENDPROXY_H
 #define SENDPROXY_H
 
+#include "../atomic_queue/atomic_queue.h"
+
 #include <winsock2.h>
-#include <Windows.h>
 
 #include <QObject>
 #include <QByteArray>
-
-#include "../atomic_queue/atomic_queue.h"
 
 namespace roco {
 class sendProxy : public QObject
