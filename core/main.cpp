@@ -79,8 +79,6 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    // closesocket(roco::sendProxy::ref().getSendSocket());
-
     // WSACleanup();
 
     return qtAppRet;
