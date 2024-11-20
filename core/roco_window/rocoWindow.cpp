@@ -20,6 +20,10 @@ rocoWindow::rocoWindow(QWidget *parent)
 
     this->setWindowTitle(QStringLiteral("洛克王国社区版"));
 
+    this->setFixedWidth(960);
+    this->setFixedHeight(597);
+    //this->windowAgent->centralize();
+
     ui->axWidget->dynamicCall("Navigate(https://17roco.qq.com/qzone.html)");
 }
 
