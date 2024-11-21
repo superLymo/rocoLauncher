@@ -1,4 +1,5 @@
 #include <QAxObject>
+#include <QProcess>
 
 #include <QWKWidgets/widgetwindowagent.h>
 #include "../widget_frame/windowbar.h"
@@ -43,7 +44,7 @@ auto rocoWindow::installWindowAgent() -> void {
     // game menu
     auto gameMenu {new QMenu(QStringLiteral("游戏"), menuBar)};
 
-    auto refreshAction {new QAction(QStringLiteral("刷新"), menuBar)};
+    auto refreshAction {new QAction(QStringLiteral("刷新重登"), menuBar)};
 
     connect(refreshAction, &QAction::triggered, this, [this]{
         this->ui->axWidget->dynamicCall("Refresh()");
@@ -54,15 +55,18 @@ auto rocoWindow::installWindowAgent() -> void {
     auto clearTracksAction {new QAction(QStringLiteral("清理缓存"), menuBar)};
 
     connect(clearTracksAction, &QAction::triggered, this, [this]{
-
+        QProcess{}.startDetached(
+            QStringLiteral("RunDll32.exe"),
+            {QStringLiteral("InetCpl.cpl,ClearMyTracksByProcess"), QStringLiteral("255")});
     });
 
-    auto silentAction {new QAction(QStringLiteral("静音"), menuBar)};
+    auto silentAction {new QAction(QStringLiteral("游戏静音"), menuBar)};
     silentAction->setCheckable(true);
     auto timeFreezeAction {new QAction(QStringLiteral("战斗免时"), menuBar)};
     timeFreezeAction->setCheckable(true);
 
     gameMenu->addAction(refreshAction);
+    gameMenu->addAction(clearTracksAction);
     gameMenu->addSeparator();
     gameMenu->addAction(silentAction);
     gameMenu->addAction(timeFreezeAction);
