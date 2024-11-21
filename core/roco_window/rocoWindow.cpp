@@ -44,7 +44,7 @@ auto rocoWindow::installWindowAgent() -> void {
     // game menu
     auto gameMenu {new QMenu(QStringLiteral("游戏"), menuBar)};
 
-    auto refreshAction {new QAction(QStringLiteral("刷新重登"), menuBar)};
+    auto refreshAction {new QAction(QStringLiteral("重新登录"), menuBar)};
 
     connect(refreshAction, &QAction::triggered, this, [this]{
         this->ui->axWidget->dynamicCall("Refresh()");
