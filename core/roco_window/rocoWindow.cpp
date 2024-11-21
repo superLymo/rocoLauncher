@@ -51,6 +51,12 @@ auto rocoWindow::installWindowAgent() -> void {
         sendProxy::ref().setSendSocket(0);
     });
 
+    auto clearTracksAction {new QAction(QStringLiteral("清理缓存"), menuBar)};
+
+    connect(clearTracksAction, &QAction::triggered, this, [this]{
+
+    });
+
     auto silentAction {new QAction(QStringLiteral("静音"), menuBar)};
     silentAction->setCheckable(true);
     auto timeFreezeAction {new QAction(QStringLiteral("战斗免时"), menuBar)};
