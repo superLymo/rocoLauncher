@@ -25,7 +25,8 @@ rocoWindow::rocoWindow(QWidget *parent)
     this->setFixedHeight(597);
     //this->windowAgent->centralize();
 
-    ui->axWidget->dynamicCall("Navigate(https://17roco.qq.com/qzone.html)");
+    ui->axWidget->dynamicCall("SetSilent(bool)", true);
+    ui->axWidget->dynamicCall("Navigate(QString)", "https://17roco.qq.com/qzone.html");
 }
 
 rocoWindow::~rocoWindow()
