@@ -45,7 +45,7 @@ auto rocoWindow::installWindowAgent() -> void {
     auto refreshAction {new QAction(QStringLiteral("刷新"), menuBar)};
 
     connect(refreshAction, &QAction::triggered, this, [this]{
-        this->ui->axWidget->dynamicCall("Navigate(https://17roco.qq.com/qzone.html)");
+        this->ui->axWidget->dynamicCall("Refresh()");
 
         sendProxy::ref().setSendSocket(0);
     });
