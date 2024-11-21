@@ -35,7 +35,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32: LIBS += -lWs2_32
+win32: LIBS += -lWs2_32 -lWinmm
 win32: LIBS += -L$$PWD/libs/minhook/bin/ -lMinHook.x64
 
 INCLUDEPATH += $$PWD/libs/minhook/include

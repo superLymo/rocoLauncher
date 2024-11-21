@@ -62,6 +62,11 @@ auto rocoWindow::installWindowAgent() -> void {
 
     auto silentAction {new QAction(QStringLiteral("游戏静音"), menuBar)};
     silentAction->setCheckable(true);
+
+    connect(silentAction, &QAction::triggered, this, [this](bool checked){
+        waveOutSetVolume(nullptr, checked ? 0x0000 : 0xFFFF);
+    });
+
     auto timeFreezeAction {new QAction(QStringLiteral("战斗免时"), menuBar)};
     timeFreezeAction->setCheckable(true);
 
