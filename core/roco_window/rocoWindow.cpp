@@ -112,8 +112,16 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
         waveOutSetVolume(nullptr, checked ? 0x0000 : 0xFFFF);
     });
 
+    silentAction->setChecked(false);
+
     auto timeFreezeAction {new QAction(QStringLiteral("战斗免时"), menuBar)};
     timeFreezeAction->setCheckable(true);
+
+    connect(timeFreezeAction, &QAction::triggered, this, [this](bool checked){
+
+    });
+
+    timeFreezeAction->setChecked(false);
 
     gameMenu->addAction(refreshAction);
     gameMenu->addAction(clearTracksAction);
@@ -124,11 +132,17 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
     // operation menu
     auto operationMenu {new QMenu(QStringLiteral("操作"), menuBar)};
 
+    auto healAllAction {new QAction(QStringLiteral("全队恢复"), menuBar)};
+
     auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
     auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};
 
+    operationMenu->addAction(healAllAction);
+    operationMenu->addSeparator();
     operationMenu->addAction(ngplPP0Action);
     operationMenu->addAction(ngplPP1Action);
+
+    // create menus over
 
     menuBar->addMenu(gameMenu);
     menuBar->addMenu(operationMenu);
