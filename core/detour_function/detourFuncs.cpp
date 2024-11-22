@@ -1,6 +1,8 @@
+#include <QDebug>
+
 #include "detourFuncs.h"
 
-#include <QDebug>
+#include "../packet/sendProxy.h"
 
 namespace roco {
 auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int {
