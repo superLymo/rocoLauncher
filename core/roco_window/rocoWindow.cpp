@@ -39,6 +39,51 @@ auto rocoWindow::installWindowAgent() -> void {
     this->windowAgent = new QWK::WidgetWindowAgent(this);
     this->windowAgent->setup(this);
 
+    auto titleLabel {new QLabel};
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setObjectName(QStringLiteral("roco-title-label"));
+
+    auto iconButton {new QWK::WindowButton};
+    iconButton->setObjectName(QStringLiteral("roco-icon-button"));
+    iconButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto minButton {new QWK::WindowButton};
+    minButton->setObjectName(QStringLiteral("roco-min-button"));
+    minButton->setProperty("system-button", true);
+    minButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto closeButton {new QWK::WindowButton};
+    closeButton->setObjectName(QStringLiteral("roco-close-button"));
+    closeButton->setProperty("system-button", true);
+    closeButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto windowBar {new QWK::WindowBar};
+
+    windowBar->setIconButton(iconButton);
+    windowBar->setMinButton(minButton);
+    windowBar->setCloseButton(closeButton);
+
+    auto menuBar {this->createMenuBar()};
+
+    windowBar->setMenuBar(menuBar);
+    windowBar->setTitleLabel(titleLabel);
+    windowBar->setHostWidget(this);
+
+    this->windowAgent->setTitleBar(windowBar);
+
+    this->windowAgent->setSystemButton(QWK::WindowAgentBase::WindowIcon, iconButton);
+    this->windowAgent->setSystemButton(QWK::WindowAgentBase::Minimize, minButton);
+    this->windowAgent->setSystemButton(QWK::WindowAgentBase::Close, closeButton);
+
+    this->windowAgent->setHitTestVisible(menuBar, true);
+
+    this->setMenuWidget(windowBar);
+
+    connect(windowBar, &QWK::WindowBar::minimizeRequested, this, &QWidget::showMinimized);
+    connect(windowBar, &QWK::WindowBar::closeRequested, this, &QWidget::close);
+}
+
+auto rocoWindow::createMenuBar() -> QMenuBar * {
     auto menuBar {new QMenuBar(this)};
 
     // game menu
@@ -90,45 +135,6 @@ auto rocoWindow::installWindowAgent() -> void {
 
     menuBar->setObjectName(QStringLiteral("roco-menu-bar"));
 
-    auto titleLabel {new QLabel};
-    titleLabel->setAlignment(Qt::AlignCenter);
-    titleLabel->setObjectName(QStringLiteral("roco-title-label"));
-
-    auto iconButton {new QWK::WindowButton};
-    iconButton->setObjectName(QStringLiteral("roco-icon-button"));
-    iconButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-
-    auto minButton {new QWK::WindowButton};
-    minButton->setObjectName(QStringLiteral("roco-min-button"));
-    minButton->setProperty("system-button", true);
-    minButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-
-    auto closeButton {new QWK::WindowButton};
-    closeButton->setObjectName(QStringLiteral("roco-close-button"));
-    closeButton->setProperty("system-button", true);
-    closeButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-
-    auto windowBar {new QWK::WindowBar};
-
-    windowBar->setIconButton(iconButton);
-    windowBar->setMinButton(minButton);
-    windowBar->setCloseButton(closeButton);
-
-    windowBar->setMenuBar(menuBar);
-    windowBar->setTitleLabel(titleLabel);
-    windowBar->setHostWidget(this);
-
-    this->windowAgent->setTitleBar(windowBar);
-
-    this->windowAgent->setSystemButton(QWK::WindowAgentBase::WindowIcon, iconButton);
-    this->windowAgent->setSystemButton(QWK::WindowAgentBase::Minimize, minButton);
-    this->windowAgent->setSystemButton(QWK::WindowAgentBase::Close, closeButton);
-
-    this->windowAgent->setHitTestVisible(menuBar, true);
-
-    this->setMenuWidget(windowBar);
-
-    connect(windowBar, &QWK::WindowBar::minimizeRequested, this, &QWidget::showMinimized);
-    connect(windowBar, &QWK::WindowBar::closeRequested, this, &QWidget::close);
+    return menuBar;
 }
 } // namespace roco

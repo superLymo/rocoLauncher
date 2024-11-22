@@ -24,6 +24,7 @@ public:
 
 private:
     auto installWindowAgent() -> void;
+    auto createMenuBar() -> QMenuBar *;
 
 private:
     Ui::rocoWindow * ui {};
