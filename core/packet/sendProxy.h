@@ -5,6 +5,8 @@
 
 #include <winsock2.h>
 
+#include <condition_variable>
+
 #include <QObject>
 #include <QByteArray>
 
@@ -26,6 +28,9 @@ private:
 
     std::atomic<decltype(&send)> sendFunc {};
     std::atomic<SOCKET> sendSock {};
+
+    std::condition_variable cv;
+    std::mutex mtx;
 public:
     static auto ref() -> sendProxy &;
 

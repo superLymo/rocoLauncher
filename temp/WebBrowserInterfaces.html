@@ -1,0 +1,1449 @@
+<h1 align=center>Microsoft Web Browser Reference</h1>
+<p>The Microsoft Web Browser COM object is a QAxObject with the CLSID {8856F961-340A-11D0-A96B-00C04FD705A2}.</p>
+<h3>Interfaces</h3>
+<ul>
+<li>IWebBrowser2
+<li>IWebBrowserApp
+<li>IWebBrowser
+</ul>
+<h3>Event Interfaces</h3>
+<ul>
+<li>DWebBrowserEvents2
+<li>DWebBrowserEvents
+<li>IPropertyNotifySink
+</ul>
+<h2>Public Slots:</h2>
+<ul>
+<li>bool <a href="#AddressBar"><b>AddressBar</b></a>();</li>
+<li>IDispatch* <a href="#Application"><b>Application</b></a>();</li>
+<li>bool <a href="#Busy"><b>Busy</b></a>();</li>
+<li>void <a href="#ClientToWindow"><b>ClientToWindow</b></a>(int& pcx, int& pcy);</li>
+<li>IDispatch* <a href="#Container"><b>Container</b></a>();</li>
+<li>IDispatch* <a href="#Document"><b>Document</b></a>();</li>
+<li>void <a href="#ExecWB"><b>ExecWB</b></a>(OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, QVariant& pvaIn = 0, QVariant& pvaOut = 0);</li>
+<li>QString <a href="#FullName"><b>FullName</b></a>();</li>
+<li>bool <a href="#FullScreen"><b>FullScreen</b></a>();</li>
+<li>QVariant <a href="#GetProperty"><b>GetProperty</b></a>(QString Property);</li>
+<li>void <a href="#GoBack"><b>GoBack</b></a>();</li>
+<li>void <a href="#GoForward"><b>GoForward</b></a>();</li>
+<li>void <a href="#GoHome"><b>GoHome</b></a>();</li>
+<li>void <a href="#GoSearch"><b>GoSearch</b></a>();</li>
+<li>qlonglong <a href="#HWND"><b>HWND</b></a>();</li>
+<li>int <a href="#Height"><b>Height</b></a>();</li>
+<li>int <a href="#Left"><b>Left</b></a>();</li>
+<li>QString <a href="#LocationName"><b>LocationName</b></a>();</li>
+<li>QString <a href="#LocationURL"><b>LocationURL</b></a>();</li>
+<li>bool <a href="#MenuBar"><b>MenuBar</b></a>();</li>
+<li>QString <a href="#Name"><b>Name</b></a>();</li>
+<li>void <a href="#Navigate"><b>Navigate</b></a>(QString URL, QVariant& Flags = 0, QVariant& TargetFrameName = 0, QVariant& PostData = 0, QVariant& Headers = 0);</li>
+<li>void <a href="#Navigate2"><b>Navigate2</b></a>(QVariant& URL, QVariant& Flags = 0, QVariant& TargetFrameName = 0, QVariant& PostData = 0, QVariant& Headers = 0);</li>
+<li>bool <a href="#Offline"><b>Offline</b></a>();</li>
+<li>IDispatch* <a href="#Parent"><b>Parent</b></a>();</li>
+<li>QString <a href="#Path"><b>Path</b></a>();</li>
+<li>void <a href="#PutProperty"><b>PutProperty</b></a>(QString Property, QVariant vtValue);</li>
+<li>OLECMDF <a href="#QueryStatusWB"><b>QueryStatusWB</b></a>(OLECMDID cmdID);</li>
+<li>void <a href="#Quit"><b>Quit</b></a>();</li>
+<li>tagREADYSTATE <a href="#ReadyState"><b>ReadyState</b></a>();</li>
+<li>void <a href="#Refresh"><b>Refresh</b></a>();</li>
+<li>void <a href="#Refresh2"><b>Refresh2</b></a>(QVariant& Level = 0);</li>
+<li>bool <a href="#RegisterAsBrowser"><b>RegisterAsBrowser</b></a>();</li>
+<li>bool <a href="#RegisterAsDropTarget"><b>RegisterAsDropTarget</b></a>();</li>
+<li>bool <a href="#Resizable"><b>Resizable</b></a>();</li>
+<li>void <a href="#SetAddressBar"><b>SetAddressBar</b></a>(bool AddressBar);</li>
+<li>void <a href="#SetFullScreen"><b>SetFullScreen</b></a>(bool FullScreen);</li>
+<li>void <a href="#SetHeight"><b>SetHeight</b></a>(int Height);</li>
+<li>void <a href="#SetLeft"><b>SetLeft</b></a>(int Left);</li>
+<li>void <a href="#SetMenuBar"><b>SetMenuBar</b></a>(bool MenuBar);</li>
+<li>void <a href="#SetOffline"><b>SetOffline</b></a>(bool Offline);</li>
+<li>void <a href="#SetRegisterAsBrowser"><b>SetRegisterAsBrowser</b></a>(bool RegisterAsBrowser);</li>
+<li>void <a href="#SetRegisterAsDropTarget"><b>SetRegisterAsDropTarget</b></a>(bool RegisterAsDropTarget);</li>
+<li>void <a href="#SetResizable"><b>SetResizable</b></a>(bool Resizable);</li>
+<li>void <a href="#SetSilent"><b>SetSilent</b></a>(bool Silent);</li>
+<li>void <a href="#SetStatusBar"><b>SetStatusBar</b></a>(bool StatusBar);</li>
+<li>void <a href="#SetStatusText"><b>SetStatusText</b></a>(QString StatusText);</li>
+<li>void <a href="#SetTheaterMode"><b>SetTheaterMode</b></a>(bool TheaterMode);</li>
+<li>void <a href="#SetToolBar"><b>SetToolBar</b></a>(int ToolBar);</li>
+<li>void <a href="#SetTop"><b>SetTop</b></a>(int Top);</li>
+<li>void <a href="#SetVisible"><b>SetVisible</b></a>(bool Visible);</li>
+<li>void <a href="#SetWidth"><b>SetWidth</b></a>(int Width);</li>
+<li>void <a href="#ShowBrowserBar"><b>ShowBrowserBar</b></a>(QVariant& pvaClsid, QVariant& pvarShow = 0, QVariant& pvarSize = 0);</li>
+<li>bool <a href="#Silent"><b>Silent</b></a>();</li>
+<li>bool <a href="#StatusBar"><b>StatusBar</b></a>();</li>
+<li>QString <a href="#StatusText"><b>StatusText</b></a>();</li>
+<li>void <a href="#Stop"><b>Stop</b></a>();</li>
+<li>bool <a href="#TheaterMode"><b>TheaterMode</b></a>();</li>
+<li>int <a href="#ToolBar"><b>ToolBar</b></a>();</li>
+<li>int <a href="#Top"><b>Top</b></a>();</li>
+<li>bool <a href="#TopLevelContainer"><b>TopLevelContainer</b></a>();</li>
+<li>QString <a href="#Type"><b>Type</b></a>();</li>
+<li>bool <a href="#Visible"><b>Visible</b></a>();</li>
+<li>int <a href="#Width"><b>Width</b></a>();</li>
+</ul>
+<h2>Signals:</h2>
+<ul>
+<li>void <a href="#BeforeNavigate"><b>BeforeNavigate</b></a>(QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Cancel);</li>
+<li>void <a href="#BeforeNavigate2"><b>BeforeNavigate2</b></a>(IDispatch* pDisp, QVariant& URL, QVariant& Flags, QVariant& TargetFrameName, QVariant& PostData, QVariant& Headers, bool& Cancel);</li>
+<li>void <a href="#BeforeScriptExecute"><b>BeforeScriptExecute</b></a>(IDispatch* pDispWindow);</li>
+<li>void <a href="#ClientToHostWindow"><b>ClientToHostWindow</b></a>(int& CX, int& CY);</li>
+<li>void <a href="#CommandStateChange"><b>CommandStateChange</b></a>(int Command, bool Enable);</li>
+<li>void <a href="#DocumentComplete"><b>DocumentComplete</b></a>(IDispatch* pDisp, QVariant& URL);</li>
+<li>void <a href="#DownloadBegin"><b>DownloadBegin</b></a>();</li>
+<li>void <a href="#DownloadComplete"><b>DownloadComplete</b></a>();</li>
+<li>void <a href="#FileDownload"><b>FileDownload</b></a>(bool ActiveDocument, bool& Cancel);</li>
+<li>void <a href="#FrameBeforeNavigate"><b>FrameBeforeNavigate</b></a>(QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Cancel);</li>
+<li>void <a href="#FrameNavigateComplete"><b>FrameNavigateComplete</b></a>(QString URL);</li>
+<li>void <a href="#FrameNewWindow"><b>FrameNewWindow</b></a>(QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Processed);</li>
+<li>void <a href="#NavigateComplete"><b>NavigateComplete</b></a>(QString URL);</li>
+<li>void <a href="#NavigateComplete2"><b>NavigateComplete2</b></a>(IDispatch* pDisp, QVariant& URL);</li>
+<li>void <a href="#NavigateError"><b>NavigateError</b></a>(IDispatch* pDisp, QVariant& URL, QVariant& Frame, QVariant& StatusCode, bool& Cancel);</li>
+<li>void <a href="#NewProcess"><b>NewProcess</b></a>(int lCauseFlag, IDispatch* pWB2, bool& Cancel);</li>
+<li>void <a href="#NewWindow"><b>NewWindow</b></a>(QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Processed);</li>
+<li>void <a href="#NewWindow2"><b>NewWindow2</b></a>(IDispatch** ppDisp, bool& Cancel);</li>
+<li>void <a href="#NewWindow3"><b>NewWindow3</b></a>(IDispatch** ppDisp, bool& Cancel, uint dwFlags, QString bstrUrlContext, QString bstrUrl);</li>
+<li>void <a href="#OnFullScreen"><b>OnFullScreen</b></a>(bool FullScreen);</li>
+<li>void <a href="#OnMenuBar"><b>OnMenuBar</b></a>(bool MenuBar);</li>
+<li>void <a href="#OnQuit"><b>OnQuit</b></a>();</li>
+<li>void <a href="#OnStatusBar"><b>OnStatusBar</b></a>(bool StatusBar);</li>
+<li>void <a href="#OnTheaterMode"><b>OnTheaterMode</b></a>(bool TheaterMode);</li>
+<li>void <a href="#OnToolBar"><b>OnToolBar</b></a>(bool ToolBar);</li>
+<li>void <a href="#OnVisible"><b>OnVisible</b></a>(bool Visible);</li>
+<li>void <a href="#PrintTemplateInstantiation"><b>PrintTemplateInstantiation</b></a>(IDispatch* pDisp);</li>
+<li>void <a href="#PrintTemplateTeardown"><b>PrintTemplateTeardown</b></a>(IDispatch* pDisp);</li>
+<li>void <a href="#PrivacyImpactedStateChange"><b>PrivacyImpactedStateChange</b></a>(bool bImpacted);</li>
+<li>void <a href="#ProgressChange"><b>ProgressChange</b></a>(int Progress, int ProgressMax);</li>
+<li>void <a href="#PropertyChange"><b>PropertyChange</b></a>(QString szProperty);</li>
+<li>void <a href="#Quit"><b>Quit</b></a>(bool& Cancel);</li>
+<li>void <a href="#ReadyStateChanged"><b>ReadyStateChanged</b></a>(tagREADYSTATE ReadyState);</li>
+<li>void <a href="#RedirectXDomainBlocked"><b>RedirectXDomainBlocked</b></a>(IDispatch* pDisp, QVariant& StartURL, QVariant& RedirectURL, QVariant& Frame, QVariant& StatusCode);</li>
+<li>void <a href="#SetPhishingFilterStatus"><b>SetPhishingFilterStatus</b></a>(int PhishingFilterStatus);</li>
+<li>void <a href="#SetSecureLockIcon"><b>SetSecureLockIcon</b></a>(int SecureLockIcon);</li>
+<li>void <a href="#StatusTextChange"><b>StatusTextChange</b></a>(QString Text);</li>
+<li>void <a href="#ThirdPartyUrlBlocked"><b>ThirdPartyUrlBlocked</b></a>(QVariant& URL, uint dwCount);</li>
+<li>void <a href="#TitleChange"><b>TitleChange</b></a>(QString Text);</li>
+<li>void <a href="#UpdatePageStatus"><b>UpdatePageStatus</b></a>(IDispatch* pDisp, QVariant& nPage, QVariant& fDone);</li>
+<li>void <a href="#WebWorkerFinsihed"><b>WebWorkerFinsihed</b></a>(uint dwUniqueID);</li>
+<li>void <a href="#WebWorkerStarted"><b>WebWorkerStarted</b></a>(uint dwUniqueID, QString bstrWorkerLabel);</li>
+<li>void <a href="#WindowActivate"><b>WindowActivate</b></a>();</li>
+<li>void <a href="#WindowClosing"><b>WindowClosing</b></a>(bool IsChildWindow, bool& Cancel);</li>
+<li>void <a href="#WindowMove"><b>WindowMove</b></a>();</li>
+<li>void <a href="#WindowResize"><b>WindowResize</b></a>();</li>
+<li>void <a href="#WindowSetHeight"><b>WindowSetHeight</b></a>(int Height);</li>
+<li>void <a href="#WindowSetLeft"><b>WindowSetLeft</b></a>(int Left);</li>
+<li>void <a href="#WindowSetResizable"><b>WindowSetResizable</b></a>(bool Resizable);</li>
+<li>void <a href="#WindowSetTop"><b>WindowSetTop</b></a>(int Top);</li>
+<li>void <a href="#WindowSetWidth"><b>WindowSetWidth</b></a>(int Width);</li>
+<li>void <a href="#WindowStateChanged"><b>WindowStateChanged</b></a>(uint dwWindowStateFlags, uint dwValidFlagsMask);</li>
+</ul>
+<h2>Properties:</h2>
+<ul>
+<li>QString <a href="#objectName"><b>objectName</b></a>;</li>
+<li>ulong <a href="#classContext"><b>classContext</b></a>;</li>
+<li>QString <a href="#control"><b>control</b></a>;</li>
+<li>bool <a href="#AddressBar"><b>AddressBar</b></a>;</li>
+<li>IDispatch* <a href="#Application"><b>Application</b></a>;</li>
+<li>bool <a href="#Busy"><b>Busy</b></a>;</li>
+<li>IDispatch* <a href="#Container"><b>Container</b></a>;</li>
+<li>IDispatch* <a href="#Document"><b>Document</b></a>;</li>
+<li>QString <a href="#FullName"><b>FullName</b></a>;</li>
+<li>bool <a href="#FullScreen"><b>FullScreen</b></a>;</li>
+<li>qlonglong <a href="#HWND"><b>HWND</b></a>;</li>
+<li>int <a href="#Height"><b>Height</b></a>;</li>
+<li>int <a href="#Left"><b>Left</b></a>;</li>
+<li>QString <a href="#LocationName"><b>LocationName</b></a>;</li>
+<li>QString <a href="#LocationURL"><b>LocationURL</b></a>;</li>
+<li>bool <a href="#MenuBar"><b>MenuBar</b></a>;</li>
+<li>QString <a href="#Name"><b>Name</b></a>;</li>
+<li>bool <a href="#Offline"><b>Offline</b></a>;</li>
+<li>IDispatch* <a href="#Parent"><b>Parent</b></a>;</li>
+<li>QString <a href="#Path"><b>Path</b></a>;</li>
+<li>tagREADYSTATE <a href="#ReadyState"><b>ReadyState</b></a>;</li>
+<li>bool <a href="#RegisterAsBrowser"><b>RegisterAsBrowser</b></a>;</li>
+<li>bool <a href="#RegisterAsDropTarget"><b>RegisterAsDropTarget</b></a>;</li>
+<li>bool <a href="#Resizable"><b>Resizable</b></a>;</li>
+<li>bool <a href="#Silent"><b>Silent</b></a>;</li>
+<li>bool <a href="#StatusBar"><b>StatusBar</b></a>;</li>
+<li>QString <a href="#StatusText"><b>StatusText</b></a>;</li>
+<li>bool <a href="#TheaterMode"><b>TheaterMode</b></a>;</li>
+<li>int <a href="#ToolBar"><b>ToolBar</b></a>;</li>
+<li>int <a href="#Top"><b>Top</b></a>;</li>
+<li>bool <a href="#TopLevelContainer"><b>TopLevelContainer</b></a>;</li>
+<li>QString <a href="#Type"><b>Type</b></a>;</li>
+<li>bool <a href="#Visible"><b>Visible</b></a>;</li>
+<li>int <a href="#Width"><b>Width</b></a>;</li>
+</ul>
+<hr><h2>Member Type Documentation</h2>
+<h3><a name=CommandStateChangeConstants></a>CommandStateChangeConstants</h3>
+<ul>
+<li>CSC_UPDATECOMMANDS	=-1</li>
+<li>CSC_NAVIGATEFORWARD	=1</li>
+<li>CSC_NAVIGATEBACK	=2</li>
+</ul>
+<h3><a name=NewProcessCauseConstants></a>NewProcessCauseConstants</h3>
+<ul>
+<li>ProtectedModeRedirect	=1</li>
+</ul>
+<h3><a name=OLECMDEXECOPT></a>OLECMDEXECOPT</h3>
+<ul>
+<li>OLECMDEXECOPT_DODEFAULT	=0</li>
+<li>OLECMDEXECOPT_PROMPTUSER	=1</li>
+<li>OLECMDEXECOPT_DONTPROMPTUSER	=2</li>
+<li>OLECMDEXECOPT_SHOWHELP	=3</li>
+</ul>
+<h3><a name=OLECMDF></a>OLECMDF</h3>
+<ul>
+<li>OLECMDF_SUPPORTED	=1</li>
+<li>OLECMDF_ENABLED	=2</li>
+<li>OLECMDF_LATCHED	=4</li>
+<li>OLECMDF_NINCHED	=8</li>
+<li>OLECMDF_INVISIBLE	=16</li>
+<li>OLECMDF_DEFHIDEONCTXTMENU	=32</li>
+</ul>
+<h3><a name=OLECMDID></a>OLECMDID</h3>
+<ul>
+<li>OLECMDID_OPEN	=1</li>
+<li>OLECMDID_NEW	=2</li>
+<li>OLECMDID_SAVE	=3</li>
+<li>OLECMDID_SAVEAS	=4</li>
+<li>OLECMDID_SAVECOPYAS	=5</li>
+<li>OLECMDID_PRINT	=6</li>
+<li>OLECMDID_PRINTPREVIEW	=7</li>
+<li>OLECMDID_PAGESETUP	=8</li>
+<li>OLECMDID_SPELL	=9</li>
+<li>OLECMDID_PROPERTIES	=10</li>
+<li>OLECMDID_CUT	=11</li>
+<li>OLECMDID_COPY	=12</li>
+<li>OLECMDID_PASTE	=13</li>
+<li>OLECMDID_PASTESPECIAL	=14</li>
+<li>OLECMDID_UNDO	=15</li>
+<li>OLECMDID_REDO	=16</li>
+<li>OLECMDID_SELECTALL	=17</li>
+<li>OLECMDID_CLEARSELECTION	=18</li>
+<li>OLECMDID_ZOOM	=19</li>
+<li>OLECMDID_GETZOOMRANGE	=20</li>
+<li>OLECMDID_UPDATECOMMANDS	=21</li>
+<li>OLECMDID_REFRESH	=22</li>
+<li>OLECMDID_STOP	=23</li>
+<li>OLECMDID_HIDETOOLBARS	=24</li>
+<li>OLECMDID_SETPROGRESSMAX	=25</li>
+<li>OLECMDID_SETPROGRESSPOS	=26</li>
+<li>OLECMDID_SETPROGRESSTEXT	=27</li>
+<li>OLECMDID_SETTITLE	=28</li>
+<li>OLECMDID_SETDOWNLOADSTATE	=29</li>
+<li>OLECMDID_STOPDOWNLOAD	=30</li>
+<li>OLECMDID_ONTOOLBARACTIVATED	=31</li>
+<li>OLECMDID_FIND	=32</li>
+<li>OLECMDID_DELETE	=33</li>
+<li>OLECMDID_HTTPEQUIV	=34</li>
+<li>OLECMDID_HTTPEQUIV_DONE	=35</li>
+<li>OLECMDID_ENABLE_INTERACTION	=36</li>
+<li>OLECMDID_ONUNLOAD	=37</li>
+<li>OLECMDID_PROPERTYBAG2	=38</li>
+<li>OLECMDID_PREREFRESH	=39</li>
+<li>OLECMDID_SHOWSCRIPTERROR	=40</li>
+<li>OLECMDID_SHOWMESSAGE	=41</li>
+<li>OLECMDID_SHOWFIND	=42</li>
+<li>OLECMDID_SHOWPAGESETUP	=43</li>
+<li>OLECMDID_SHOWPRINT	=44</li>
+<li>OLECMDID_CLOSE	=45</li>
+<li>OLECMDID_ALLOWUILESSSAVEAS	=46</li>
+<li>OLECMDID_DONTDOWNLOADCSS	=47</li>
+<li>OLECMDID_UPDATEPAGESTATUS	=48</li>
+<li>OLECMDID_PRINT2	=49</li>
+<li>OLECMDID_PRINTPREVIEW2	=50</li>
+<li>OLECMDID_SETPRINTTEMPLATE	=51</li>
+<li>OLECMDID_GETPRINTTEMPLATE	=52</li>
+<li>OLECMDID_PAGEACTIONBLOCKED	=55</li>
+<li>OLECMDID_PAGEACTIONUIQUERY	=56</li>
+<li>OLECMDID_FOCUSVIEWCONTROLS	=57</li>
+<li>OLECMDID_FOCUSVIEWCONTROLSQUERY	=58</li>
+<li>OLECMDID_SHOWPAGEACTIONMENU	=59</li>
+<li>OLECMDID_ADDTRAVELENTRY	=60</li>
+<li>OLECMDID_UPDATETRAVELENTRY	=61</li>
+<li>OLECMDID_UPDATEBACKFORWARDSTATE	=62</li>
+<li>OLECMDID_OPTICAL_ZOOM	=63</li>
+<li>OLECMDID_OPTICAL_GETZOOMRANGE	=64</li>
+<li>OLECMDID_WINDOWSTATECHANGED	=65</li>
+<li>OLECMDID_ACTIVEXINSTALLSCOPE	=66</li>
+<li>OLECMDID_UPDATETRAVELENTRY_DATARECOVERY	=67</li>
+<li>OLECMDID_SHOWTASKDLG	=68</li>
+<li>OLECMDID_POPSTATEEVENT	=69</li>
+<li>OLECMDID_VIEWPORT_MODE	=70</li>
+<li>OLECMDID_LAYOUT_VIEWPORT_WIDTH	=71</li>
+<li>OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM	=72</li>
+<li>OLECMDID_USER_OPTICAL_ZOOM	=73</li>
+<li>OLECMDID_PAGEAVAILABLE	=74</li>
+<li>OLECMDID_GETUSERSCALABLE	=75</li>
+<li>OLECMDID_UPDATE_CARET	=76</li>
+<li>OLECMDID_ENABLE_VISIBILITY	=77</li>
+<li>OLECMDID_MEDIA_PLAYBACK	=78</li>
+<li>OLECMDID_SETFAVICON	=79</li>
+<li>OLECMDID_SET_HOST_FULLSCREENMODE	=80</li>
+<li>OLECMDID_EXITFULLSCREEN	=81</li>
+<li>OLECMDID_SCROLLCOMPLETE	=82</li>
+<li>OLECMDID_ONBEFOREUNLOAD	=83</li>
+<li>OLECMDID_SHOWMESSAGE_BLOCKABLE	=84</li>
+<li>OLECMDID_SHOWTASKDLG_BLOCKABLE	=85</li>
+</ul>
+<h3><a name=SecureLockIconConstants></a>SecureLockIconConstants</h3>
+<ul>
+<li>secureLockIconUnsecure	=0</li>
+<li>secureLockIconMixed	=1</li>
+<li>secureLockIconSecureUnknownBits	=2</li>
+<li>secureLockIconSecure40Bit	=3</li>
+<li>secureLockIconSecure56Bit	=4</li>
+<li>secureLockIconSecureFortezza	=5</li>
+<li>secureLockIconSecure128Bit	=6</li>
+</ul>
+<h3><a name=ShellWindowFindWindowOptions></a>ShellWindowFindWindowOptions</h3>
+<ul>
+<li>SWFO_NEEDDISPATCH	=1</li>
+<li>SWFO_INCLUDEPENDING	=2</li>
+<li>SWFO_COOKIEPASSED	=4</li>
+</ul>
+<h3><a name=ShellWindowTypeConstants></a>ShellWindowTypeConstants</h3>
+<ul>
+<li>SWC_EXPLORER	=0</li>
+<li>SWC_BROWSER	=1</li>
+<li>SWC_3RDPARTY	=2</li>
+<li>SWC_CALLBACK	=4</li>
+<li>SWC_DESKTOP	=8</li>
+</ul>
+<h3><a name=tagREADYSTATE></a>tagREADYSTATE</h3>
+<ul>
+<li>READYSTATE_UNINITIALIZED	=0</li>
+<li>READYSTATE_LOADING	=1</li>
+<li>READYSTATE_LOADED	=2</li>
+<li>READYSTATE_INTERACTIVE	=3</li>
+<li>READYSTATE_COMPLETE	=4</li>
+</ul>
+<hr><h2>Member Function Documentation</h2>
+<h3><a name=AddressBar></a>bool AddressBar ()<tt> [slot]</tt></h3>
+<p>Controls whether address bar is shown
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(AddressBar()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("AddressBar()").tobool();</pre>
+
+<h3><a name=Application></a>IDispatch* Application ()<tt> [slot]</tt></h3>
+<p>Returns the application automation object if accessible, this automation object otherwise..
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Application()));</pre>
+<p>Or call the function directly:<pre>
+	QAxObject * result = object->querySubObject("Application()");</pre>
+
+<h3><a name=Busy></a>bool Busy ()<tt> [slot]</tt></h3>
+<p>Query to see if something is still in progress.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Busy()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("Busy()").tobool();</pre>
+
+<h3><a name=ClientToWindow></a>void ClientToWindow (int& pcx, int& pcy)<tt> [slot]</tt></h3>
+<p>Converts client sizes into window sizes.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int&, int&)), object, SLOT(ClientToWindow(int&, int&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("ClientToWindow(int&, int&)", params);</pre>
+
+<h3><a name=Container></a>IDispatch* Container ()<tt> [slot]</tt></h3>
+<p>Returns the container/parent automation object, if any.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Container()));</pre>
+<p>Or call the function directly:<pre>
+	QAxObject * result = object->querySubObject("Container()");</pre>
+
+<h3><a name=Document></a>IDispatch* Document ()<tt> [slot]</tt></h3>
+<p>Returns the active Document automation object, if any.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Document()));</pre>
+<p>Or call the function directly:<pre>
+	QAxObject * result = object->querySubObject("Document()");</pre>
+
+<h3><a name=ExecWB></a>void ExecWB (OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, QVariant& pvaIn, QVariant& pvaOut)<tt> [slot]</tt></h3>
+<p>IOleCommandTarget::Exec
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(OLECMDID, OLECMDEXECOPT, QVariant&, QVariant&)), object, SLOT(ExecWB(OLECMDID, OLECMDEXECOPT, QVariant&, QVariant&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("ExecWB(OLECMDID, OLECMDEXECOPT, QVariant&, QVariant&)", params);</pre>
+
+<h3><a name=FullName></a>QString FullName ()<tt> [slot]</tt></h3>
+<p>Returns file specification of the application, including path.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(FullName()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("FullName()").tostring();</pre>
+
+<h3><a name=FullScreen></a>bool FullScreen ()<tt> [slot]</tt></h3>
+<p>Maximizes window and turns off statusbar, toolbar, menubar, and titlebar.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(FullScreen()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("FullScreen()").tobool();</pre>
+
+<h3><a name=GetProperty></a>QVariant GetProperty (QString Property)<tt> [slot]</tt></h3>
+<p>Retrieve the Associated value for the property vtValue in the context of the object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QString)), object, SLOT(GetProperty(QString)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	QVariant result = object->dynamicCall("GetProperty(QString)", params);</pre>
+
+<h3><a name=GoBack></a>void GoBack ()<tt> [slot]</tt></h3>
+<p>Navigates to the previous item in the history list.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(GoBack()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("GoBack()");</pre>
+
+<h3><a name=GoForward></a>void GoForward ()<tt> [slot]</tt></h3>
+<p>Navigates to the next item in the history list.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(GoForward()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("GoForward()");</pre>
+
+<h3><a name=GoHome></a>void GoHome ()<tt> [slot]</tt></h3>
+<p>Go home/start page.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(GoHome()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("GoHome()");</pre>
+
+<h3><a name=GoSearch></a>void GoSearch ()<tt> [slot]</tt></h3>
+<p>Go Search Page.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(GoSearch()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("GoSearch()");</pre>
+
+<h3><a name=HWND></a>qlonglong HWND ()<tt> [slot]</tt></h3>
+<p>Returns the HWND of the current IE window.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(HWND()));</pre>
+<p>Or call the function directly:<pre>
+	qlonglong result = object->dynamicCall("HWND()").toqlonglong();</pre>
+
+<h3><a name=Height></a>int Height ()<tt> [slot]</tt></h3>
+<p>The vertical dimension (pixels) of the frame window/object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Height()));</pre>
+<p>Or call the function directly:<pre>
+	int result = object->dynamicCall("Height()").toint();</pre>
+
+<h3><a name=Left></a>int Left ()<tt> [slot]</tt></h3>
+<p>The horizontal position (pixels) of the frame window relative to the screen/container.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Left()));</pre>
+<p>Or call the function directly:<pre>
+	int result = object->dynamicCall("Left()").toint();</pre>
+
+<h3><a name=LocationName></a>QString LocationName ()<tt> [slot]</tt></h3>
+<p>Gets the short (UI-friendly) name of the URL/file currently viewed.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(LocationName()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("LocationName()").tostring();</pre>
+
+<h3><a name=LocationURL></a>QString LocationURL ()<tt> [slot]</tt></h3>
+<p>Gets the full URL/path currently viewed.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(LocationURL()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("LocationURL()").tostring();</pre>
+
+<h3><a name=MenuBar></a>bool MenuBar ()<tt> [slot]</tt></h3>
+<p>Controls whether menubar is shown.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(MenuBar()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("MenuBar()").tobool();</pre>
+
+<h3><a name=Name></a>QString Name ()<tt> [slot]</tt></h3>
+<p>Returns name of the application.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Name()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("Name()").tostring();</pre>
+
+<h3><a name=Navigate></a>void Navigate (QString URL, QVariant& Flags, QVariant& TargetFrameName, QVariant& PostData, QVariant& Headers)<tt> [slot]</tt></h3>
+<p>Navigates to a URL or file.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QString, QVariant&, QVariant&, QVariant&, QVariant&)), object, SLOT(Navigate(QString, QVariant&, QVariant&, QVariant&, QVariant&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("Navigate(QString, QVariant&, QVariant&, QVariant&, QVariant&)", params);</pre>
+
+<h3><a name=Navigate2></a>void Navigate2 (QVariant& URL, QVariant& Flags, QVariant& TargetFrameName, QVariant& PostData, QVariant& Headers)<tt> [slot]</tt></h3>
+<p>Navigates to a URL or file or pidl.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QVariant&, QVariant&, QVariant&, QVariant&, QVariant&)), object, SLOT(Navigate2(QVariant&, QVariant&, QVariant&, QVariant&, QVariant&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("Navigate2(QVariant&, QVariant&, QVariant&, QVariant&, QVariant&)", params);</pre>
+
+<h3><a name=Offline></a>bool Offline ()<tt> [slot]</tt></h3>
+<p>Controls if the frame is offline (read from cache)
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Offline()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("Offline()").tobool();</pre>
+
+<h3><a name=Parent></a>IDispatch* Parent ()<tt> [slot]</tt></h3>
+<p>Returns the automation object of the container/parent if one exists or this automation object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Parent()));</pre>
+<p>Or call the function directly:<pre>
+	QAxObject * result = object->querySubObject("Parent()");</pre>
+
+<h3><a name=Path></a>QString Path ()<tt> [slot]</tt></h3>
+<p>Returns the path to the application.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Path()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("Path()").tostring();</pre>
+
+<h3><a name=PutProperty></a>void PutProperty (QString Property, QVariant vtValue)<tt> [slot]</tt></h3>
+<p>Associates vtValue with the name szProperty in the context of the object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QString, QVariant)), object, SLOT(PutProperty(QString, QVariant)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("PutProperty(QString, QVariant)", params);</pre>
+
+<h3><a name=QueryStatusWB></a>OLECMDF QueryStatusWB (OLECMDID cmdID)<tt> [slot]</tt></h3>
+<p>IOleCommandTarget::QueryStatus
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(OLECMDID)), object, SLOT(QueryStatusWB(OLECMDID)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	OLECMDF result = object->dynamicCall("QueryStatusWB(OLECMDID)", params).toint();</pre>
+
+<h3><a name=Quit></a>void Quit ()<tt> [slot]</tt></h3>
+<p>Exits application and closes the open document.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Quit()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("Quit()");</pre>
+
+<h3><a name=ReadyState></a>tagREADYSTATE ReadyState ()<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(ReadyState()));</pre>
+<p>Or call the function directly:<pre>
+	tagREADYSTATE result = object->dynamicCall("ReadyState()").toint();</pre>
+
+<h3><a name=Refresh></a>void Refresh ()<tt> [slot]</tt></h3>
+<p>Refresh the currently viewed page.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Refresh()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("Refresh()");</pre>
+
+<h3><a name=Refresh2></a>void Refresh2 (QVariant& Level)<tt> [slot]</tt></h3>
+<p>Refresh the currently viewed page.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QVariant&)), object, SLOT(Refresh2(QVariant&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("Refresh2(QVariant&)", params);</pre>
+
+<h3><a name=RegisterAsBrowser></a>bool RegisterAsBrowser ()<tt> [slot]</tt></h3>
+<p>Registers OC as a top-level browser (for target name resolution)
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(RegisterAsBrowser()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("RegisterAsBrowser()").tobool();</pre>
+
+<h3><a name=RegisterAsDropTarget></a>bool RegisterAsDropTarget ()<tt> [slot]</tt></h3>
+<p>Registers OC as a drop target for navigation
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(RegisterAsDropTarget()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("RegisterAsDropTarget()").tobool();</pre>
+
+<h3><a name=Resizable></a>bool Resizable ()<tt> [slot]</tt></h3>
+<p>Controls whether the window is resizable
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Resizable()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("Resizable()").tobool();</pre>
+
+<h3><a name=SetAddressBar></a>void SetAddressBar (bool AddressBar)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetAddressBar(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetAddressBar(bool)", params);</pre>
+
+<h3><a name=SetFullScreen></a>void SetFullScreen (bool FullScreen)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetFullScreen(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetFullScreen(bool)", params);</pre>
+
+<h3><a name=SetHeight></a>void SetHeight (int Height)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int)), object, SLOT(SetHeight(int)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetHeight(int)", params);</pre>
+
+<h3><a name=SetLeft></a>void SetLeft (int Left)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int)), object, SLOT(SetLeft(int)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetLeft(int)", params);</pre>
+
+<h3><a name=SetMenuBar></a>void SetMenuBar (bool MenuBar)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetMenuBar(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetMenuBar(bool)", params);</pre>
+
+<h3><a name=SetOffline></a>void SetOffline (bool Offline)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetOffline(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetOffline(bool)", params);</pre>
+
+<h3><a name=SetRegisterAsBrowser></a>void SetRegisterAsBrowser (bool RegisterAsBrowser)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetRegisterAsBrowser(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetRegisterAsBrowser(bool)", params);</pre>
+
+<h3><a name=SetRegisterAsDropTarget></a>void SetRegisterAsDropTarget (bool RegisterAsDropTarget)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetRegisterAsDropTarget(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetRegisterAsDropTarget(bool)", params);</pre>
+
+<h3><a name=SetResizable></a>void SetResizable (bool Resizable)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetResizable(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetResizable(bool)", params);</pre>
+
+<h3><a name=SetSilent></a>void SetSilent (bool Silent)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetSilent(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetSilent(bool)", params);</pre>
+
+<h3><a name=SetStatusBar></a>void SetStatusBar (bool StatusBar)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetStatusBar(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetStatusBar(bool)", params);</pre>
+
+<h3><a name=SetStatusText></a>void SetStatusText (QString StatusText)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QString)), object, SLOT(SetStatusText(QString)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetStatusText(QString)", params);</pre>
+
+<h3><a name=SetTheaterMode></a>void SetTheaterMode (bool TheaterMode)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetTheaterMode(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetTheaterMode(bool)", params);</pre>
+
+<h3><a name=SetToolBar></a>void SetToolBar (int ToolBar)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int)), object, SLOT(SetToolBar(int)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetToolBar(int)", params);</pre>
+
+<h3><a name=SetTop></a>void SetTop (int Top)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int)), object, SLOT(SetTop(int)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetTop(int)", params);</pre>
+
+<h3><a name=SetVisible></a>void SetVisible (bool Visible)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(bool)), object, SLOT(SetVisible(bool)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetVisible(bool)", params);</pre>
+
+<h3><a name=SetWidth></a>void SetWidth (int Width)<tt> [slot]</tt></h3>
+<p>
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(int)), object, SLOT(SetWidth(int)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("SetWidth(int)", params);</pre>
+
+<h3><a name=ShowBrowserBar></a>void ShowBrowserBar (QVariant& pvaClsid, QVariant& pvarShow, QVariant& pvarSize)<tt> [slot]</tt></h3>
+<p>Set BrowserBar to Clsid
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal(QVariant&, QVariant&, QVariant&)), object, SLOT(ShowBrowserBar(QVariant&, QVariant&, QVariant&)));</pre>
+<p>Or call the function directly:<pre>
+	QVariantList params = ...
+	object->dynamicCall("ShowBrowserBar(QVariant&, QVariant&, QVariant&)", params);</pre>
+
+<h3><a name=Silent></a>bool Silent ()<tt> [slot]</tt></h3>
+<p>Controls if any dialog boxes can be shown
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Silent()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("Silent()").tobool();</pre>
+
+<h3><a name=StatusBar></a>bool StatusBar ()<tt> [slot]</tt></h3>
+<p>Turn on or off the statusbar.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(StatusBar()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("StatusBar()").tobool();</pre>
+
+<h3><a name=StatusText></a>QString StatusText ()<tt> [slot]</tt></h3>
+<p>Text of Status window.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(StatusText()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("StatusText()").tostring();</pre>
+
+<h3><a name=Stop></a>void Stop ()<tt> [slot]</tt></h3>
+<p>Stops opening a file.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Stop()));</pre>
+<p>Or call the function directly:<pre>
+	object->dynamicCall("Stop()");</pre>
+
+<h3><a name=TheaterMode></a>bool TheaterMode ()<tt> [slot]</tt></h3>
+<p>Controls if the browser is in theater mode
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(TheaterMode()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("TheaterMode()").tobool();</pre>
+
+<h3><a name=ToolBar></a>int ToolBar ()<tt> [slot]</tt></h3>
+<p>Controls which toolbar is shown.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(ToolBar()));</pre>
+<p>Or call the function directly:<pre>
+	int result = object->dynamicCall("ToolBar()").toint();</pre>
+
+<h3><a name=Top></a>int Top ()<tt> [slot]</tt></h3>
+<p>The vertical position (pixels) of the frame window relative to the screen/container.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Top()));</pre>
+<p>Or call the function directly:<pre>
+	int result = object->dynamicCall("Top()").toint();</pre>
+
+<h3><a name=TopLevelContainer></a>bool TopLevelContainer ()<tt> [slot]</tt></h3>
+<p>Returns True if this is the top level object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(TopLevelContainer()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("TopLevelContainer()").tobool();</pre>
+
+<h3><a name=Type></a>QString Type ()<tt> [slot]</tt></h3>
+<p>Returns the type of the contained document object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Type()));</pre>
+<p>Or call the function directly:<pre>
+	QString result = object->dynamicCall("Type()").tostring();</pre>
+
+<h3><a name=Visible></a>bool Visible ()<tt> [slot]</tt></h3>
+<p>Determines whether the application is visible or hidden.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Visible()));</pre>
+<p>Or call the function directly:<pre>
+	bool result = object->dynamicCall("Visible()").tobool();</pre>
+
+<h3><a name=Width></a>int Width ()<tt> [slot]</tt></h3>
+<p>The horizontal dimension (pixels) of the frame window/object.
+
+<p>Connect a signal to this slot:<pre>
+	QObject::connect(sender, SIGNAL(someSignal()), object, SLOT(Width()));</pre>
+<p>Or call the function directly:<pre>
+	int result = object->dynamicCall("Width()").toint();</pre>
+
+<h3><a name=BeforeNavigate></a>void BeforeNavigate (QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Cancel)<tt> [signal]</tt></h3>
+<p>Fired when a new hyperlink is being navigated to.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(BeforeNavigate(QString, int, QString, QVariant&, QString, bool&)), receiver, SLOT(someSlot(QString, int, QString, QVariant&, QString, bool&)));</pre>
+
+<h3><a name=BeforeNavigate2></a>void BeforeNavigate2 (IDispatch* pDisp, QVariant& URL, QVariant& Flags, QVariant& TargetFrameName, QVariant& PostData, QVariant& Headers, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(BeforeNavigate2(IDispatch*, QVariant&, QVariant&, QVariant&, QVariant&, QVariant&, bool&)), receiver, SLOT(someSlot(IDispatch*, QVariant&, QVariant&, QVariant&, QVariant&, QVariant&, bool&)));</pre>
+
+<h3><a name=BeforeScriptExecute></a>void BeforeScriptExecute (IDispatch* pDispWindow)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(BeforeScriptExecute(IDispatch*)), receiver, SLOT(someSlot(IDispatch*)));</pre>
+
+<h3><a name=ClientToHostWindow></a>void ClientToHostWindow (int& CX, int& CY)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(ClientToHostWindow(int&, int&)), receiver, SLOT(someSlot(int&, int&)));</pre>
+
+<h3><a name=CommandStateChange></a>void CommandStateChange (int Command, bool Enable)<tt> [signal]</tt></h3>
+<p>The enabled state of a command changed
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(CommandStateChange(int, bool)), receiver, SLOT(someSlot(int, bool)));</pre>
+
+<h3><a name=DocumentComplete></a>void DocumentComplete (IDispatch* pDisp, QVariant& URL)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(DocumentComplete(IDispatch*, QVariant&)), receiver, SLOT(someSlot(IDispatch*, QVariant&)));</pre>
+
+<h3><a name=DownloadBegin></a>void DownloadBegin ()<tt> [signal]</tt></h3>
+<p>Download of a page started.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(DownloadBegin()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=DownloadComplete></a>void DownloadComplete ()<tt> [signal]</tt></h3>
+<p>Download of page complete.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(DownloadComplete()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=FileDownload></a>void FileDownload (bool ActiveDocument, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(FileDownload(bool, bool&)), receiver, SLOT(someSlot(bool, bool&)));</pre>
+
+<h3><a name=FrameBeforeNavigate></a>void FrameBeforeNavigate (QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Cancel)<tt> [signal]</tt></h3>
+<p>Fired when a new hyperlink is being navigated to in a frame.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(FrameBeforeNavigate(QString, int, QString, QVariant&, QString, bool&)), receiver, SLOT(someSlot(QString, int, QString, QVariant&, QString, bool&)));</pre>
+
+<h3><a name=FrameNavigateComplete></a>void FrameNavigateComplete (QString URL)<tt> [signal]</tt></h3>
+<p>Fired when a new hyperlink is being navigated to in a frame.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(FrameNavigateComplete(QString)), receiver, SLOT(someSlot(QString)));</pre>
+
+<h3><a name=FrameNewWindow></a>void FrameNewWindow (QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Processed)<tt> [signal]</tt></h3>
+<p>Fired when a new window should be created.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(FrameNewWindow(QString, int, QString, QVariant&, QString, bool&)), receiver, SLOT(someSlot(QString, int, QString, QVariant&, QString, bool&)));</pre>
+
+<h3><a name=NavigateComplete></a>void NavigateComplete (QString URL)<tt> [signal]</tt></h3>
+<p>Fired when the document being navigated to becomes visible and enters the navigation stack.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NavigateComplete(QString)), receiver, SLOT(someSlot(QString)));</pre>
+
+<h3><a name=NavigateComplete2></a>void NavigateComplete2 (IDispatch* pDisp, QVariant& URL)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NavigateComplete2(IDispatch*, QVariant&)), receiver, SLOT(someSlot(IDispatch*, QVariant&)));</pre>
+
+<h3><a name=NavigateError></a>void NavigateError (IDispatch* pDisp, QVariant& URL, QVariant& Frame, QVariant& StatusCode, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NavigateError(IDispatch*, QVariant&, QVariant&, QVariant&, bool&)), receiver, SLOT(someSlot(IDispatch*, QVariant&, QVariant&, QVariant&, bool&)));</pre>
+
+<h3><a name=NewProcess></a>void NewProcess (int lCauseFlag, IDispatch* pWB2, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NewProcess(int, IDispatch*, bool&)), receiver, SLOT(someSlot(int, IDispatch*, bool&)));</pre>
+
+<h3><a name=NewWindow></a>void NewWindow (QString URL, int Flags, QString TargetFrameName, QVariant& PostData, QString Headers, bool& Processed)<tt> [signal]</tt></h3>
+<p>Fired when a new window should be created.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NewWindow(QString, int, QString, QVariant&, QString, bool&)), receiver, SLOT(someSlot(QString, int, QString, QVariant&, QString, bool&)));</pre>
+
+<h3><a name=NewWindow2></a>void NewWindow2 (IDispatch** ppDisp, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NewWindow2(IDispatch**, bool&)), receiver, SLOT(someSlot(IDispatch**, bool&)));</pre>
+
+<h3><a name=NewWindow3></a>void NewWindow3 (IDispatch** ppDisp, bool& Cancel, uint dwFlags, QString bstrUrlContext, QString bstrUrl)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(NewWindow3(IDispatch**, bool&, uint, QString, QString)), receiver, SLOT(someSlot(IDispatch**, bool&, uint, QString, QString)));</pre>
+
+<h3><a name=OnFullScreen></a>void OnFullScreen (bool FullScreen)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnFullScreen(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=OnMenuBar></a>void OnMenuBar (bool MenuBar)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnMenuBar(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=OnQuit></a>void OnQuit ()<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnQuit()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=OnStatusBar></a>void OnStatusBar (bool StatusBar)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnStatusBar(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=OnTheaterMode></a>void OnTheaterMode (bool TheaterMode)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnTheaterMode(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=OnToolBar></a>void OnToolBar (bool ToolBar)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnToolBar(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=OnVisible></a>void OnVisible (bool Visible)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(OnVisible(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=PrintTemplateInstantiation></a>void PrintTemplateInstantiation (IDispatch* pDisp)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(PrintTemplateInstantiation(IDispatch*)), receiver, SLOT(someSlot(IDispatch*)));</pre>
+
+<h3><a name=PrintTemplateTeardown></a>void PrintTemplateTeardown (IDispatch* pDisp)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(PrintTemplateTeardown(IDispatch*)), receiver, SLOT(someSlot(IDispatch*)));</pre>
+
+<h3><a name=PrivacyImpactedStateChange></a>void PrivacyImpactedStateChange (bool bImpacted)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(PrivacyImpactedStateChange(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=ProgressChange></a>void ProgressChange (int Progress, int ProgressMax)<tt> [signal]</tt></h3>
+<p>Fired when download progress is updated.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(ProgressChange(int, int)), receiver, SLOT(someSlot(int, int)));</pre>
+
+<h3><a name=PropertyChange></a>void PropertyChange (QString szProperty)<tt> [signal]</tt></h3>
+<p>Fired when the PutProperty method has been called.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(PropertyChange(QString)), receiver, SLOT(someSlot(QString)));</pre>
+
+<h3><a name=Quit></a>void Quit (bool& Cancel)<tt> [signal]</tt></h3>
+<p>Fired when application is quiting.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(Quit(bool&)), receiver, SLOT(someSlot(bool&)));</pre>
+
+<h3><a name=ReadyStateChanged></a>void ReadyStateChanged (tagREADYSTATE ReadyState)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(ReadyStateChanged(tagREADYSTATE)), receiver, SLOT(someSlot(tagREADYSTATE)));</pre>
+
+<h3><a name=RedirectXDomainBlocked></a>void RedirectXDomainBlocked (IDispatch* pDisp, QVariant& StartURL, QVariant& RedirectURL, QVariant& Frame, QVariant& StatusCode)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(RedirectXDomainBlocked(IDispatch*, QVariant&, QVariant&, QVariant&, QVariant&)), receiver, SLOT(someSlot(IDispatch*, QVariant&, QVariant&, QVariant&, QVariant&)));</pre>
+
+<h3><a name=SetPhishingFilterStatus></a>void SetPhishingFilterStatus (int PhishingFilterStatus)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(SetPhishingFilterStatus(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=SetSecureLockIcon></a>void SetSecureLockIcon (int SecureLockIcon)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(SetSecureLockIcon(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=StatusTextChange></a>void StatusTextChange (QString Text)<tt> [signal]</tt></h3>
+<p>Statusbar text changed.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(StatusTextChange(QString)), receiver, SLOT(someSlot(QString)));</pre>
+
+<h3><a name=ThirdPartyUrlBlocked></a>void ThirdPartyUrlBlocked (QVariant& URL, uint dwCount)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(ThirdPartyUrlBlocked(QVariant&, uint)), receiver, SLOT(someSlot(QVariant&, uint)));</pre>
+
+<h3><a name=TitleChange></a>void TitleChange (QString Text)<tt> [signal]</tt></h3>
+<p>Document title changed.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(TitleChange(QString)), receiver, SLOT(someSlot(QString)));</pre>
+
+<h3><a name=UpdatePageStatus></a>void UpdatePageStatus (IDispatch* pDisp, QVariant& nPage, QVariant& fDone)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(UpdatePageStatus(IDispatch*, QVariant&, QVariant&)), receiver, SLOT(someSlot(IDispatch*, QVariant&, QVariant&)));</pre>
+
+<h3><a name=WebWorkerFinsihed></a>void WebWorkerFinsihed (uint dwUniqueID)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WebWorkerFinsihed(uint)), receiver, SLOT(someSlot(uint)));</pre>
+
+<h3><a name=WebWorkerStarted></a>void WebWorkerStarted (uint dwUniqueID, QString bstrWorkerLabel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WebWorkerStarted(uint, QString)), receiver, SLOT(someSlot(uint, QString)));</pre>
+
+<h3><a name=WindowActivate></a>void WindowActivate ()<tt> [signal]</tt></h3>
+<p>Fired when window has been activated.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowActivate()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=WindowClosing></a>void WindowClosing (bool IsChildWindow, bool& Cancel)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowClosing(bool, bool&)), receiver, SLOT(someSlot(bool, bool&)));</pre>
+
+<h3><a name=WindowMove></a>void WindowMove ()<tt> [signal]</tt></h3>
+<p>Fired when window has been moved.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowMove()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=WindowResize></a>void WindowResize ()<tt> [signal]</tt></h3>
+<p>Fired when window has been sized.
+
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowResize()), receiver, SLOT(someSlot()));</pre>
+
+<h3><a name=WindowSetHeight></a>void WindowSetHeight (int Height)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowSetHeight(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=WindowSetLeft></a>void WindowSetLeft (int Left)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowSetLeft(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=WindowSetResizable></a>void WindowSetResizable (bool Resizable)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowSetResizable(bool)), receiver, SLOT(someSlot(bool)));</pre>
+
+<h3><a name=WindowSetTop></a>void WindowSetTop (int Top)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowSetTop(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=WindowSetWidth></a>void WindowSetWidth (int Width)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowSetWidth(int)), receiver, SLOT(someSlot(int)));</pre>
+
+<h3><a name=WindowStateChanged></a>void WindowStateChanged (uint dwWindowStateFlags, uint dwValidFlagsMask)<tt> [signal]</tt></h3>
+<p>
+<p>Connect a slot to this signal:<pre>
+	QObject::connect(object, SIGNAL(WindowStateChanged(uint, uint)), receiver, SLOT(someSlot(uint, uint)));</pre>
+
+<hr><h2>Property Documentation</h2>
+<h3><a name=objectName></a>QString objectName</h3>
+<p>
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("objectName").tostring();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	QString newValue = ...
+	object->setProperty("objectName", newValue);
+</pre>
+Or using the <a href="#setObjectName">setObjectName</a> slot.
+
+<h3><a name=classContext></a>ulong classContext</h3>
+<p>
+<p>Read this property's value using QObject::property:<pre>
+	ulong val = object->property("classContext").toulong();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	ulong newValue = ...
+	object->setProperty("classContext", newValue);
+</pre>
+Or using the <a href="#setClassContext">setClassContext</a> slot.
+
+<h3><a name=control></a>QString control</h3>
+<p>
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("control").tostring();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	QString newValue = ...
+	object->setProperty("control", newValue);
+</pre>
+Or using the <a href="#setControl">setControl</a> slot.
+
+<h3><a name=AddressBar></a>bool AddressBar</h3>
+<p>Controls whether address bar is shown
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("AddressBar").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("AddressBar", newValue);
+</pre>
+Or using the <a href="#SetAddressBar">SetAddressBar</a> slot.
+
+<h3><a name=Application></a>IDispatch* Application</h3>
+<p>Returns the application automation object if accessible, this automation object otherwise..
+
+<p>Read this property's value using QObject::property:<pre>
+	IDispatch* val = object->property("Application").toiDispatch*();
+</pre>
+
+<h3><a name=Busy></a>bool Busy</h3>
+<p>Query to see if something is still in progress.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("Busy").tobool();
+</pre>
+
+<h3><a name=Container></a>IDispatch* Container</h3>
+<p>Returns the container/parent automation object, if any.
+
+<p>Read this property's value using QObject::property:<pre>
+	IDispatch* val = object->property("Container").toiDispatch*();
+</pre>
+
+<h3><a name=Document></a>IDispatch* Document</h3>
+<p>Returns the active Document automation object, if any.
+
+<p>Read this property's value using QObject::property:<pre>
+	IDispatch* val = object->property("Document").toiDispatch*();
+</pre>
+
+<h3><a name=FullName></a>QString FullName</h3>
+<p>Returns file specification of the application, including path.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("FullName").tostring();
+</pre>
+
+<h3><a name=FullScreen></a>bool FullScreen</h3>
+<p>Maximizes window and turns off statusbar, toolbar, menubar, and titlebar.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("FullScreen").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("FullScreen", newValue);
+</pre>
+Or using the <a href="#SetFullScreen">SetFullScreen</a> slot.
+
+<h3><a name=HWND></a>qlonglong HWND</h3>
+<p>Returns the HWND of the current IE window.
+
+<p>Read this property's value using QObject::property:<pre>
+	qlonglong val = object->property("HWND").toqlonglong();
+</pre>
+
+<h3><a name=Height></a>int Height</h3>
+<p>The vertical dimension (pixels) of the frame window/object.
+
+<p>Read this property's value using QObject::property:<pre>
+	int val = object->property("Height").toint();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	int newValue = ...
+	object->setProperty("Height", newValue);
+</pre>
+Or using the <a href="#SetHeight">SetHeight</a> slot.
+
+<h3><a name=Left></a>int Left</h3>
+<p>The horizontal position (pixels) of the frame window relative to the screen/container.
+
+<p>Read this property's value using QObject::property:<pre>
+	int val = object->property("Left").toint();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	int newValue = ...
+	object->setProperty("Left", newValue);
+</pre>
+Or using the <a href="#SetLeft">SetLeft</a> slot.
+
+<h3><a name=LocationName></a>QString LocationName</h3>
+<p>Gets the short (UI-friendly) name of the URL/file currently viewed.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("LocationName").tostring();
+</pre>
+
+<h3><a name=LocationURL></a>QString LocationURL</h3>
+<p>Gets the full URL/path currently viewed.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("LocationURL").tostring();
+</pre>
+
+<h3><a name=MenuBar></a>bool MenuBar</h3>
+<p>Controls whether menubar is shown.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("MenuBar").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("MenuBar", newValue);
+</pre>
+Or using the <a href="#SetMenuBar">SetMenuBar</a> slot.
+
+<h3><a name=Name></a>QString Name</h3>
+<p>Returns name of the application.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("Name").tostring();
+</pre>
+
+<h3><a name=Offline></a>bool Offline</h3>
+<p>Controls if the frame is offline (read from cache)
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("Offline").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("Offline", newValue);
+</pre>
+Or using the <a href="#SetOffline">SetOffline</a> slot.
+
+<h3><a name=Parent></a>IDispatch* Parent</h3>
+<p>Returns the automation object of the container/parent if one exists or this automation object.
+
+<p>Read this property's value using QObject::property:<pre>
+	IDispatch* val = object->property("Parent").toiDispatch*();
+</pre>
+
+<h3><a name=Path></a>QString Path</h3>
+<p>Returns the path to the application.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("Path").tostring();
+</pre>
+
+<h3><a name=ReadyState></a>tagREADYSTATE ReadyState</h3>
+<p>
+<p>This property is of an unsupported type.
+
+<h3><a name=RegisterAsBrowser></a>bool RegisterAsBrowser</h3>
+<p>Registers OC as a top-level browser (for target name resolution)
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("RegisterAsBrowser").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("RegisterAsBrowser", newValue);
+</pre>
+Or using the <a href="#SetRegisterAsBrowser">SetRegisterAsBrowser</a> slot.
+
+<h3><a name=RegisterAsDropTarget></a>bool RegisterAsDropTarget</h3>
+<p>Registers OC as a drop target for navigation
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("RegisterAsDropTarget").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("RegisterAsDropTarget", newValue);
+</pre>
+Or using the <a href="#SetRegisterAsDropTarget">SetRegisterAsDropTarget</a> slot.
+
+<h3><a name=Resizable></a>bool Resizable</h3>
+<p>Controls whether the window is resizable
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("Resizable").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("Resizable", newValue);
+</pre>
+Or using the <a href="#SetResizable">SetResizable</a> slot.
+
+<h3><a name=Silent></a>bool Silent</h3>
+<p>Controls if any dialog boxes can be shown
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("Silent").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("Silent", newValue);
+</pre>
+Or using the <a href="#SetSilent">SetSilent</a> slot.
+
+<h3><a name=StatusBar></a>bool StatusBar</h3>
+<p>Turn on or off the statusbar.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("StatusBar").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("StatusBar", newValue);
+</pre>
+Or using the <a href="#SetStatusBar">SetStatusBar</a> slot.
+
+<h3><a name=StatusText></a>QString StatusText</h3>
+<p>Text of Status window.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("StatusText").tostring();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	QString newValue = ...
+	object->setProperty("StatusText", newValue);
+</pre>
+Or using the <a href="#SetStatusText">SetStatusText</a> slot.
+
+<h3><a name=TheaterMode></a>bool TheaterMode</h3>
+<p>Controls if the browser is in theater mode
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("TheaterMode").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("TheaterMode", newValue);
+</pre>
+Or using the <a href="#SetTheaterMode">SetTheaterMode</a> slot.
+
+<h3><a name=ToolBar></a>int ToolBar</h3>
+<p>Controls which toolbar is shown.
+
+<p>Read this property's value using QObject::property:<pre>
+	int val = object->property("ToolBar").toint();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	int newValue = ...
+	object->setProperty("ToolBar", newValue);
+</pre>
+Or using the <a href="#SetToolBar">SetToolBar</a> slot.
+
+<h3><a name=Top></a>int Top</h3>
+<p>The vertical position (pixels) of the frame window relative to the screen/container.
+
+<p>Read this property's value using QObject::property:<pre>
+	int val = object->property("Top").toint();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	int newValue = ...
+	object->setProperty("Top", newValue);
+</pre>
+Or using the <a href="#SetTop">SetTop</a> slot.
+
+<h3><a name=TopLevelContainer></a>bool TopLevelContainer</h3>
+<p>Returns True if this is the top level object.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("TopLevelContainer").tobool();
+</pre>
+
+<h3><a name=Type></a>QString Type</h3>
+<p>Returns the type of the contained document object.
+
+<p>Read this property's value using QObject::property:<pre>
+	QString val = object->property("Type").tostring();
+</pre>
+
+<h3><a name=Visible></a>bool Visible</h3>
+<p>Determines whether the application is visible or hidden.
+
+<p>Read this property's value using QObject::property:<pre>
+	bool val = object->property("Visible").tobool();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	bool newValue = ...
+	object->setProperty("Visible", newValue);
+</pre>
+Or using the <a href="#SetVisible">SetVisible</a> slot.
+
+<h3><a name=Width></a>int Width</h3>
+<p>The horizontal dimension (pixels) of the frame window/object.
+
+<p>Read this property's value using QObject::property:<pre>
+	int val = object->property("Width").toint();
+</pre>
+Set this property' value using QObject::setProperty:<pre>
+	int newValue = ...
+	object->setProperty("Width", newValue);
+</pre>
+Or using the <a href="#SetWidth">SetWidth</a> slot.
+

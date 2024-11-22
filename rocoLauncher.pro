@@ -46,7 +46,8 @@ else:win32-g++: PRE_TARGETDEPS += $$PWD/libs/minhook/bin/libMinHook.x64.a
 
 DISTFILES += \
     .gitignore \
-    roadmap.md
+    temp/roadmap.md \
+    temp/WebBrowserInterfaces.html
 
 win32: LIBS += -L$$PWD/libs/WidgetFrame/ -lWidgetFrame
 
