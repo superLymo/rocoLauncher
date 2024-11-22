@@ -132,7 +132,7 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
     // operation menu
     auto operationMenu {new QMenu(QStringLiteral("操作"), menuBar)};
 
-    auto healAllAction {new QAction(QStringLiteral("全队恢复"), menuBar)};
+    auto healAllAction {new QAction(QStringLiteral("全队状态恢复"), menuBar)};
 
     auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
     auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};
