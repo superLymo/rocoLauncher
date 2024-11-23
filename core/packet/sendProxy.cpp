@@ -15,6 +15,10 @@ auto sendProxy::submit(char const * buf, int len, int flags) -> bool {
     return pkts.try_enqueue(std::make_pair(QByteArray(buf, len), flags));
 }
 
+auto sendProxy::submit(QByteArray && packetData, int flags) -> bool {
+    return pkts.try_enqueue(std::make_pair(std::move(packetData), flags));
+}
+
 auto sendProxy::setSendFunc(decltype(&send) originalSend) -> void {
     this->sendFunc = originalSend;
 }

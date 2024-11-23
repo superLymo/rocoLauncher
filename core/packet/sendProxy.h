@@ -25,7 +25,8 @@ private:
 public:
     static auto ref() -> sendProxy &;
 
-    auto submit(char const * buf, int len, int flags) -> bool;
+    auto submit(char const * buf, int len, int flags = 0) -> bool;
+    auto submit(QByteArray && packetData, int flags = 0) -> bool;
 
     auto setSendFunc(decltype(&send) originalSend) -> void;
     auto getSendFunc() const -> decltype(&send);
