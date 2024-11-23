@@ -13,12 +13,14 @@ SOURCES += \
     core/detour_function/detourFuncs.cpp \
     core/packet/sendProxy.cpp \
     core/packet/wsaSendProxy.cpp \
+    core/packet_submitter/packetSubmitter.cpp \
     core/roco_window/rocoWindow.cpp \
     core/widget_frame/*.cpp
 
 HEADERS += \
     core/packet/sendProxy.h \
     core/packet/wsaSendProxy.h \
+    core/packet_submitter/packetSubmitter.h \
     core/roco_window/rocoWindow.h \
     core/utils/bytes.h \
     core/detour_function/detourFuncs.h \
