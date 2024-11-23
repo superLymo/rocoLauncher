@@ -134,13 +134,13 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
 
     auto healAllAction {new QAction(QStringLiteral("全宠物恢复"), menuBar)};
 
-    auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
-    auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};
+    // auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
+    // auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};
 
     operationMenu->addAction(healAllAction);
-    operationMenu->addSeparator();
-    operationMenu->addAction(ngplPP0Action);
-    operationMenu->addAction(ngplPP1Action);
+    // operationMenu->addSeparator();
+    // operationMenu->addAction(ngplPP0Action);
+    // operationMenu->addAction(ngplPP1Action);
 
     // create menus over
 
