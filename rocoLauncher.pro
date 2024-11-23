@@ -24,7 +24,8 @@ HEADERS += \
     core/utils/bytes.h \
     core/detour_function/detourFuncs.h \
     core/widget_frame/*.h \
-    core/concurrentqueue/*.h
+    core/concurrentqueue/*.h \
+    core/readerwriterqueue/*.h
 
 FORMS += \
     ui/rocoWindow.ui

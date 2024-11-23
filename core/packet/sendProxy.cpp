@@ -12,11 +12,7 @@ auto sendProxy::ref() -> sendProxy & {
 }
 
 auto sendProxy::submit(SOCKET s, char const * buf, int len, int flags) -> bool {
-    auto ret {pkts.try_push(std::make_pair(packetMeta{s, flags}, QByteArray(buf, len)))};
-
-    cv.notify_one();
-
-    return ret;
+    return pkts.try_push(std::make_pair(packetMeta{s, flags}, QByteArray(buf, len)));
 }
 
 auto sendProxy::setSendFunc(decltype(&send) originalSend) -> void {
@@ -39,13 +35,8 @@ sendProxy::sendProxy(QObject *parent)
     : QObject{parent}
 {
     std::thread([this]{
-        elementType pkt {};
-        std::unique_lock<std::mutex> lck(mtx);
-
         while (true) {
-            cv.wait(lck, [this, &pkt]() -> bool {
-                return this->pkts.try_pop(pkt);
-            });
+            auto pkt {pkts.pop()};
 
             if (this->sendSock == 0 || this->sendFunc == nullptr) {
                 continue;
