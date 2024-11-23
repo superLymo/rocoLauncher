@@ -17,7 +17,6 @@ SOURCES += \
     core/widget_frame/*.cpp
 
 HEADERS += \
-    core/atomic_queue/*.h \
     core/packet/sendProxy.h \
     core/packet/wsaSendProxy.h \
     core/roco_window/rocoWindow.h \

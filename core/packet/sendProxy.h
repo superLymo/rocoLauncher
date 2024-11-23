@@ -1,7 +1,7 @@
 #ifndef SENDPROXY_H
 #define SENDPROXY_H
 
-#include "../atomic_queue/atomic_queue.h"
+#include "../concurrentqueue/blockingconcurrentqueue.h"
 
 #include <winsock2.h>
 
@@ -14,15 +14,10 @@ class sendProxy : public QObject
     Q_OBJECT
 
 public:
-    struct packetMeta {
-        SOCKET sourceSock {};
-        int sendFlags {};
-    };
-
-    using elementType = std::pair<packetMeta, QByteArray>;
-    using packetQueue = atomic_queue::AtomicQueueB2<elementType, std::allocator<elementType>>;
+    using elementType = std::pair<QByteArray, int>;
+    using packetQueue = moodycamel::BlockingConcurrentQueue<elementType>;
 private:
-    packetQueue pkts {4096};
+    packetQueue pkts {1024};
 
     std::atomic<decltype(&send)> sendFunc {};
     std::atomic<SOCKET> sendSock {};
@@ -30,7 +25,7 @@ private:
 public:
     static auto ref() -> sendProxy &;
 
-    auto submit(SOCKET s, char const * buf, int len, int flags) -> bool;
+    auto submit(char const * buf, int len, int flags) -> bool;
 
     auto setSendFunc(decltype(&send) originalSend) -> void;
     auto getSendFunc() const -> decltype(&send);
