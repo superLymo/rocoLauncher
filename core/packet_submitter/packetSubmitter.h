@@ -1,6 +1,8 @@
 #ifndef PACKETSUBMITTER_H
 #define PACKETSUBMITTER_H
 
+#include <QObject>
+
 namespace roco {
 
 class packetSubmitter : public QObject
