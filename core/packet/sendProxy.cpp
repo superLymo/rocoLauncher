@@ -50,7 +50,7 @@ sendProxy::sendProxy(QObject *parent)
         while (this->working) {
             pkts.wait_dequeue(pkt);
 
-            if (this->sendSock == 0 || this->sendFunc == nullptr) {
+            if (pkt.second.sourceSock == 0 || this->sendFunc == nullptr) {
                 continue;
             }
 
