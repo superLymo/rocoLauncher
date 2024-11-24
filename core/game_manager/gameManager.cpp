@@ -6,6 +6,10 @@
 
 namespace roco {
 
+auto gameManager::nothingToDo() -> void {
+    this->opQue.try_enqueue(operation::nothing_to_do);
+}
+
 auto gameManager::healPetsInBag() -> void {
     this->opQue.try_enqueue(operation::head_pets_in_bag);
 }
@@ -16,6 +20,12 @@ auto gameManager::refresh() -> void {
     this->qqNumber = {};
     this->vip = {};
     this->currentMap = {};
+}
+
+auto gameManager::gameOver() -> void {
+    this->working = false;
+
+    this->nothingToDo();
 }
 
 gameManager::gameManager(QObject *parent)

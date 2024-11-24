@@ -26,6 +26,9 @@ public:
     rocoWindow(QWidget *parent = nullptr);
     ~rocoWindow();
 
+public:
+    auto gameOver() -> void;
+
 private:
     auto installWindowAgent() -> void;
     auto createMenuBar() -> QMenuBar *;

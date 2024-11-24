@@ -37,6 +37,10 @@ rocoWindow::~rocoWindow()
     delete ui;
 }
 
+auto rocoWindow::gameOver() -> void {
+    this->game->gameOver();
+}
+
 auto rocoWindow::installWindowAgent() -> void {
     this->windowAgent = new QWK::WidgetWindowAgent(this);
     this->windowAgent->setup(this);

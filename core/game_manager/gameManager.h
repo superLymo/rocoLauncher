@@ -16,7 +16,7 @@ class gameManager : public QObject
 
 private:
     enum class operation {
-        nothing,
+        nothing_to_do,
         head_pets_in_bag,
     };
 
@@ -29,9 +29,11 @@ private:
     moodycamel::BlockingReaderWriterQueue<operation> opQue {256};
 
 public:
+    auto nothingToDo() -> void;
     auto healPetsInBag() -> void;
 
     auto refresh() -> void;
+    auto gameOver() -> void;
 
 public:
     explicit gameManager(QObject *parent = nullptr);
