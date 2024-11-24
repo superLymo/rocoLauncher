@@ -12,11 +12,17 @@ SOURCES += \
     core/main.cpp \
     core/detour_function/detourFuncs.cpp \
     core/packet/sendProxy.cpp \
+    core/packet_analyser/packetAnalyser.cpp \
+    core/packet_modifier/packetModifier.cpp \
+    core/packet_submitter/packetSubmitter.cpp \
     core/roco_window/rocoWindow.cpp \
     core/widget_frame/*.cpp
 
 HEADERS += \
     core/packet/sendProxy.h \
+    core/packet_analyser/packetAnalyser.h \
+    core/packet_modifier/packetModifier.h \
+    core/packet_submitter/packetSubmitter.h \
     core/roco_window/rocoWindow.h \
     core/utils/bytes.h \
     core/detour_function/detourFuncs.h \
