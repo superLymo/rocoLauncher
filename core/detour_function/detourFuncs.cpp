@@ -15,7 +15,7 @@ auto detourSend(SOCKET s, char const * buf, int len, int flags) -> int {
     }
 
     if (roco::sendProxy::ref().getSendSocket() == s) {
-        sendProxy::ref().submit(buf, len, flags);
+        sendProxy::ref().submit(s, buf, len, flags);
 
         return len;
     }

@@ -17,12 +17,12 @@ auto sendProxy::ref() -> sendProxy & {
     return sender;
 }
 
-auto sendProxy::submit(char const * buf, int len, int flags) -> bool {
-    return pkts.try_enqueue(std::make_pair(QByteArray(buf, len), flags));
+auto sendProxy::submit(SOCKET sourceSock, char const * buf, int len, int flags) -> bool {
+    return pkts.try_enqueue(std::make_pair(QByteArray(buf, len), packetMeta{sourceSock, flags}));
 }
 
-auto sendProxy::submit(QByteArray && packetData, int flags) -> bool {
-    return pkts.try_enqueue(std::make_pair(std::move(packetData), flags));
+auto sendProxy::submit(QByteArray && packetData) -> bool {
+    return pkts.try_enqueue(std::make_pair(std::move(packetData), packetMeta{this->getSendSocket(), 0}));
 }
 
 auto sendProxy::setSendFunc(decltype(&send) originalSend) -> void {
@@ -55,7 +55,7 @@ sendProxy::sendProxy(QObject *parent)
             }
 
             auto ret {this->sendFunc.load()(
-                this->sendSock, pkt.first.data(), pkt.first.size(), pkt.second)};
+                pkt.second.sourceSock, pkt.first.data(), pkt.first.size(), pkt.second.flags)};
 
             if (ret == SOCKET_ERROR) {
                 qDebug() << "send error!!!\n";

@@ -14,7 +14,12 @@ class sendProxy : public QObject
     Q_OBJECT
 
 public:
-    using elementType = std::pair<QByteArray, int>;
+    struct packetMeta {
+        SOCKET sourceSock {};
+        int flags {};
+    };
+
+    using elementType = std::pair<QByteArray, packetMeta>;
     using packetQueue = moodycamel::BlockingConcurrentQueue<elementType>;
 private:
     std::atomic<bool> working {true};
@@ -29,8 +34,8 @@ public:
 
     static auto ref() -> sendProxy &;
 
-    auto submit(char const * buf, int len, int flags = 0) -> bool;
-    auto submit(QByteArray && packetData, int flags = 0) -> bool;
+    auto submit(SOCKET sourceSock, char const * buf, int len, int flags) -> bool;
+    auto submit(QByteArray && packetData) -> bool;
 
     auto setSendFunc(decltype(&send) originalSend) -> void;
     auto getSendFunc() const -> decltype(&send);
