@@ -76,6 +76,8 @@ int main(int argc, char *argv[])
 
     auto qtAppRet {qtApp.exec()};
 
+    roco::sendProxy::ref().gameOver();
+
     if (MH_DisableHook(MH_ALL_HOOKS) != MH_OK) {
         qDebug() << __LINE__ << '\n';
 

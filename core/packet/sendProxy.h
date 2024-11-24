@@ -17,12 +17,16 @@ public:
     using elementType = std::pair<QByteArray, int>;
     using packetQueue = moodycamel::BlockingConcurrentQueue<elementType>;
 private:
+    std::atomic<bool> working {true};
+
     packetQueue pkts {1024};
 
     std::atomic<decltype(&send)> sendFunc {};
     std::atomic<SOCKET> sendSock {};
 
 public:
+    auto gameOver() -> void;
+
     static auto ref() -> sendProxy &;
 
     auto submit(char const * buf, int len, int flags = 0) -> bool;

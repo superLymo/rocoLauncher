@@ -1,10 +1,12 @@
+#include <windows.h>
+
 #include <QAxObject>
 #include <QProcess>
 
 #include <QWKWidgets/widgetwindowagent.h>
 #include "../widget_frame/windowbar.h"
 #include "../widget_frame/windowbutton.h"
-#include "../packet/sendProxy.h"
+#include "../game_manager/gameManager.h"
 
 #include "rocoWindow.h"
 #include "ui_rocoWindow.h"
@@ -12,7 +14,7 @@
 namespace roco {
 rocoWindow::rocoWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::rocoWindow)
+    , ui(new Ui::rocoWindow), game {new roco::gameManager(this)}
 {
     this->setAttribute(Qt::WA_DontCreateNativeAncestors);
 
@@ -92,9 +94,9 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
     auto refreshAction {new QAction(QStringLiteral("重新登录"), menuBar)};
 
     connect(refreshAction, &QAction::triggered, this, [this]{
-        this->ui->axWidget->dynamicCall("Refresh()");
+        this->game->refresh();
 
-        sendProxy::ref().setSendSocket(0);
+        this->ui->axWidget->dynamicCall("Refresh()");
     });
 
     auto clearTracksAction {new QAction(QStringLiteral("清理缓存"), menuBar)};
@@ -133,6 +135,10 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
     auto operationMenu {new QMenu(QStringLiteral("操作"), menuBar)};
 
     auto healAllAction {new QAction(QStringLiteral("全宠物恢复"), menuBar)};
+
+    connect(healAllAction, &QAction::triggered, this, [this]{
+        this->game->healPetsInBag();
+    });
 
     // auto ngplPP0Action {new QAction(QStringLiteral("马桶防控压0"), menuBar)};
     // auto ngplPP1Action {new QAction(QStringLiteral("马桶防控压1"), menuBar)};

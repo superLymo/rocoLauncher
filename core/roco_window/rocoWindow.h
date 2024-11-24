@@ -14,6 +14,10 @@ class WidgetWindowAgent;
 }
 
 namespace roco {
+class gameManager;
+}
+
+namespace roco {
 class rocoWindow : public QMainWindow
 {
     Q_OBJECT
@@ -29,6 +33,8 @@ private:
 private:
     Ui::rocoWindow * ui {};
     QWK::WidgetWindowAgent * windowAgent {};
+
+    roco::gameManager * game {};
 };
 } // namespace roco
 #endif // ROCOWINDOW_H

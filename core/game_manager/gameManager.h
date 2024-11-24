@@ -31,6 +31,8 @@ private:
 public:
     auto healPetsInBag() -> void;
 
+    auto refresh() -> void;
+
 public:
     explicit gameManager(QObject *parent = nullptr);
 

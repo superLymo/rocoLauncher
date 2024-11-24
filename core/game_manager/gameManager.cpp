@@ -10,6 +10,14 @@ auto gameManager::healPetsInBag() -> void {
     this->opQue.try_enqueue(operation::head_pets_in_bag);
 }
 
+auto gameManager::refresh() -> void {
+    sendProxy::ref().setSendSocket(0);
+
+    this->qqNumber = {};
+    this->vip = {};
+    this->currentMap = {};
+}
+
 gameManager::gameManager(QObject *parent)
     : QObject{parent}
 {

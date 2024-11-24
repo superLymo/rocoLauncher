@@ -5,6 +5,12 @@
 #include <QDebug>
 
 namespace roco {
+auto sendProxy::gameOver() -> void {
+    this->working = false;
+
+    this->submit(QByteArray{});
+}
+
 auto sendProxy::ref() -> sendProxy & {
     static sendProxy sender {};
 
@@ -41,7 +47,7 @@ sendProxy::sendProxy(QObject *parent)
     std::thread([this]{
         elementType pkt {};
 
-        while (true) {
+        while (this->working) {
             pkts.wait_dequeue(pkt);
 
             if (this->sendSock == 0 || this->sendFunc == nullptr) {
@@ -53,6 +59,8 @@ sendProxy::sendProxy(QObject *parent)
 
             if (ret == SOCKET_ERROR) {
                 qDebug() << "send error!!!\n";
+
+                qDebug() << WSAGetLastError() << '\n';
             }
         }
     }).detach();
