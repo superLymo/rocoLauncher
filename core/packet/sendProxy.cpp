@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QtEndian>
 
+#include "../utils/bytes.h"
+
 namespace roco {
 auto sendProxy::gameOver() -> void {
     this->working = false;
@@ -96,6 +98,8 @@ sendProxy::sendProxy(QObject *parent)
 
             auto ret {this->sendFunc.load()(
                 pkt.second.sourceSock, pkt.first.data(), pkt.first.size(), pkt.second.flags)};
+
+            // qDebug() << "what sent is : " << byteArrToStr16(pkt.first) << '\n';
 
             if (ret == SOCKET_ERROR) {
                 qDebug() << "send error!!!\n";
