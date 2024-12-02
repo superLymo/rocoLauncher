@@ -39,7 +39,7 @@ gameManager::gameManager(QObject *parent)
 
             switch (opValue) {
             case operation::head_pets_in_bag: {
-                sendProxy::ref().submit(QByteArray::fromHex(QStringLiteral("95270000000B00180B97BD56000000000000000400000000").toLocal8Bit()));
+                sendProxy::ref().submit(QByteArray::fromHex(QStringLiteral("95270000000B001809FF8FEE000000000000000400000000").toLocal8Bit()));
 
                 break;
             }

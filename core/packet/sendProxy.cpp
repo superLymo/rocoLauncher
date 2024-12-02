@@ -54,6 +54,8 @@ sendProxy::sendProxy(QObject *parent)
                 continue;
             }
 
+            // todo.
+
             auto ret {this->sendFunc.load()(
                 pkt.second.sourceSock, pkt.first.data(), pkt.first.size(), pkt.second.flags)};
 
