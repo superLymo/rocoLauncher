@@ -6,3 +6,4 @@
 - 本地配置化
 - 分析回血
 - 分析vip检测代码
+- 完善packetAnalyser和packetModifier
