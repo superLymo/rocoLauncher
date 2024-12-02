@@ -124,7 +124,11 @@ auto rocoWindow::createMenuBar() -> QMenuBar * {
     timeFreezeAction->setCheckable(true);
 
     connect(timeFreezeAction, &QAction::triggered, this, [this](bool checked){
+        if (!checked) {
+            return;
+        }
 
+        this->game->timeFreeze();
     });
 
     timeFreezeAction->setChecked(false);

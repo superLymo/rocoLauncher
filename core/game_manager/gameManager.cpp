@@ -14,6 +14,10 @@ auto gameManager::healPetsInBag() -> void {
     this->opQue.try_enqueue(operation::head_pets_in_bag);
 }
 
+auto gameManager::timeFreeze() -> void {
+    this->opQue.try_enqueue(operation::time_freeze);
+}
+
 auto gameManager::refresh() -> void {
     sendProxy::ref().setSendSocket(0);
 
@@ -40,6 +44,13 @@ gameManager::gameManager(QObject *parent)
             switch (opValue) {
             case operation::head_pets_in_bag: {
                 sendProxy::ref().submit(QByteArray::fromHex(QStringLiteral("95270000000B001809FF8FEE000000000000000400000000").toLocal8Bit()));
+
+                break;
+            }
+            case operation::time_freeze: {
+                sendProxy::ref().setFreeTimeTheater(true);
+
+                sendProxy::ref().submit(QByteArray::fromHex(QStringLiteral("952700000003000409FF8FEE000000000000000A000D0090000000000001").toLocal8Bit()));
 
                 break;
             }

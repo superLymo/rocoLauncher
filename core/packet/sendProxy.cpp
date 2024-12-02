@@ -3,6 +3,7 @@
 #include <thread>
 
 #include <QDebug>
+#include <QtEndian>
 
 namespace roco {
 auto sendProxy::gameOver() -> void {
@@ -46,12 +47,33 @@ auto sendProxy::setFreeTimeTheater(bool value) -> void {
 }
 
 auto sendProxy::applyFreeTimeTheater(QByteArray & sourcePacket) -> void {
+    if (sourcePacket.size() < 22) {
+        return;
+    }
 
+    if (*reinterpret_cast<quint32 const *>(sourcePacket.constData() + 4) != qToBigEndian<quint32>(0x00030003)) {
+        return;
+    }
+
+    if (*reinterpret_cast<quint16 const *>(sourcePacket.constData() + 20) != qToBigEndian<quint16>(0x0090)) {
+        return;
+    }
+
+    sourcePacket[20] = qToBigEndian<char>(0x01);
+    sourcePacket[21] = qToBigEndian<char>(0xE7);
 
     this->freeTimeTheater = false;
 }
 
 auto sendProxy::applyModifier(QByteArray & sourcePacket) -> void {
+    if (sourcePacket.size() < 4) {
+        return;
+    }
+
+    if (*reinterpret_cast<quint32 const *>(sourcePacket.constData()) != qToBigEndian<quint32>(0x95270000)) {
+        return;
+    }
+
     if (this->freeTimeTheater) {
         this->applyFreeTimeTheater(sourcePacket);
     }

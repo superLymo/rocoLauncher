@@ -18,6 +18,7 @@ private:
     enum class operation {
         nothing_to_do,
         head_pets_in_bag,
+        time_freeze,
     };
 
     std::atomic<bool> working {true};
@@ -31,6 +32,8 @@ private:
 public:
     auto nothingToDo() -> void;
     auto healPetsInBag() -> void;
+
+    auto timeFreeze() -> void;
 
     auto refresh() -> void;
     auto gameOver() -> void;
