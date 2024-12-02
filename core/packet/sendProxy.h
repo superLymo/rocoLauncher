@@ -22,6 +22,7 @@ public:
     using elementType = std::pair<QByteArray, packetMeta>;
     using packetQueue = moodycamel::BlockingConcurrentQueue<elementType>;
 private:
+    // send proxy members
     std::atomic<bool> working {true};
 
     packetQueue pkts {1024};
@@ -29,7 +30,11 @@ private:
     std::atomic<decltype(&send)> sendFunc {};
     std::atomic<SOCKET> sendSock {};
 
+    // send modifier members
+    std::atomic<bool> freeTimeTheater {};
+
 public:
+    // send proxy members
     auto gameOver() -> void;
 
     static auto ref() -> sendProxy &;
@@ -42,6 +47,12 @@ public:
 
     auto setSendSocket(SOCKET sock) -> void;
     auto getSendSocket() const -> SOCKET;
+
+    // send modifier members
+    auto setFreeTimeTheater(bool value) -> void;
+    auto applyFreeTimeTheater(QByteArray & sourcePacket) -> void;
+
+    auto applyModifier(QByteArray & sourcePacket) -> void;
 private:
     explicit sendProxy(QObject *parent = nullptr);
 

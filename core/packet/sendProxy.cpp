@@ -41,6 +41,22 @@ auto sendProxy::getSendSocket() const -> SOCKET {
     return this->sendSock;
 }
 
+auto sendProxy::setFreeTimeTheater(bool value) -> void {
+    this->freeTimeTheater = value;
+}
+
+auto sendProxy::applyFreeTimeTheater(QByteArray & sourcePacket) -> void {
+
+
+    this->freeTimeTheater = false;
+}
+
+auto sendProxy::applyModifier(QByteArray & sourcePacket) -> void {
+    if (this->freeTimeTheater) {
+        this->applyFreeTimeTheater(sourcePacket);
+    }
+}
+
 sendProxy::sendProxy(QObject *parent)
     : QObject{parent}
 {
@@ -54,7 +70,7 @@ sendProxy::sendProxy(QObject *parent)
                 continue;
             }
 
-            // todo.
+            this->applyModifier(pkt.first);
 
             auto ret {this->sendFunc.load()(
                 pkt.second.sourceSock, pkt.first.data(), pkt.first.size(), pkt.second.flags)};
